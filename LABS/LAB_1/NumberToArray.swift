@@ -26,9 +26,17 @@ final class NumberToArray {
     // на выходе получаем: []
     
     static func createArrayBy(number: Int) -> [Int] {
-        //
-        // Код пишем тут
-        //
-        return []
+        guard number != 0 else {
+            return []
+        }
+        var truncatableNum = number
+        var array: [Int] = []
+        
+        repeat {
+            array.insert(truncatableNum % 10, at: 0)
+            truncatableNum = truncatableNum / 10
+        }while abs(truncatableNum) >= 1
+        
+        return array
     }
 }
