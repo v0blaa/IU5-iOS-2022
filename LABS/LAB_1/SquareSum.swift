@@ -30,7 +30,7 @@ final class SquareSum {
         var sum: Int = 0
         
         for i in arrayOfNumber{
-            sum += i*i
+            sum += i * i
         }
         
         return sum

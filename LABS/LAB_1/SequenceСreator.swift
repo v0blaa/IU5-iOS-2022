@@ -22,13 +22,17 @@ final class SequenceСreator {
     // на выходе получаем: []
     
     static func createSequenceFromZeroTo(finalElement: Int) -> [Int] {
+        // тут всё было верно, написала тест и проверила, при получении на входе 1 функция возвращает [1]
         guard finalElement >= 1 else {
             return []
         }
+
         var array: [Int] = []
+        
         for i in 1...finalElement{
             array.append(i)
         }
+        
         return array
         //либо то же самое через if, не знаю, что лучше использовать
     }
@@ -44,13 +48,17 @@ final class SequenceСreator {
     // на выходе получаем - []
     
     static func createReversedSequenceToZeroFrom(finalElement: Int) -> [Int] {
+        // тут всё было верно, написала тест и проверила, при получении на входе 1 функция возвращает [1]
         guard finalElement >= 1 else {
             return []
         }
+        
         var array: [Int] = []
+        
         for i in stride(from: finalElement, through: 1, by: -1){
             array.append(i)
         }
+        
         return array
     }
 }

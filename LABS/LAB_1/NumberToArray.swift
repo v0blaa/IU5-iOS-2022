@@ -32,10 +32,10 @@ final class NumberToArray {
         var truncatableNum = number
         var array: [Int] = []
         
-        repeat {
+        while  abs(truncatableNum) >= 1{
             array.insert(truncatableNum % 10, at: 0)
             truncatableNum = truncatableNum / 10
-        }while abs(truncatableNum) >= 1
+        }
         
         return array
     }

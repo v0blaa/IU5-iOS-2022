@@ -30,14 +30,12 @@ final class BooleanConverter {
     // на выходе получаем: BoolValues.veryBad(value: "LOVE ANDROID")
     
     static func toBoolFrom(string: String) -> BoolValues {
-        
-        if string == "YES"{
+        switch string{
+        case "YES":
             return BoolValues.yes
-        }
-        else if string == "NO"{
+        case "NO":
             return BoolValues.no
-        }
-        else{
+        default:
             return BoolValues.veryBad(value: string)
         }
     }

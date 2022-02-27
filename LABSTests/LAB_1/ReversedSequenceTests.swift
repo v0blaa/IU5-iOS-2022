@@ -33,4 +33,14 @@ class ReversedSequenceTests: XCTestCase {
     func testCreateReversedSequenceToZeroFromWhenGetZeroValue() {
         XCTAssertEqual([], SequenceСreator.createReversedSequenceToZeroFrom(finalElement: 0))
     }
+    
+    
+    //новые тесты
+    func testCreateSequenceFromZeroToWhenGetOneValue() {
+        XCTAssertEqual([1], SequenceСreator.createSequenceFromZeroTo(finalElement: 1))
+    }
+
+    func testCreateReversedSequenceToZeroFromWhenGetOneValue() {
+        XCTAssertEqual([1], SequenceСreator.createReversedSequenceToZeroFrom(finalElement: 1))
+    }
 }
