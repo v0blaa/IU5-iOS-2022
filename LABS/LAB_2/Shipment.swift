@@ -22,22 +22,34 @@ import Foundation
 final class Shipment {
     static func fruitShipment(pearsCount: Int, applesCount: Int, completion: @escaping (Int) -> ()) {
         var resultFruitCount = 0
-
+        let group = DispatchGroup()
+        let lock = NSLock()
+g
         let pearsThread = Thread {
+            group.enter()
             for _ in 1...pearsCount {
+                lock.lock()
                 resultFruitCount += 1
+                lock.unlock()
             }
+            group.leave()
         }
-
+        
         let applesThread = Thread {
+            group.enter()
             for _ in 1...applesCount {
+                lock.lock()
                 resultFruitCount += 1
+                lock.unlock()
             }
+            group.leave()
         }
-
-        pearsThread.start()
         applesThread.start()
-
-        completion(resultFruitCount)
+        pearsThread.start()
+        
+        // Я правильно понимаю, что global очередь используется тогда, когда нужно выставить приоритет очередям?
+        group.notify(queue: .main){
+            completion(resultFruitCount)
+        }
     }
 }
