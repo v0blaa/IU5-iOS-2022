@@ -49,7 +49,7 @@ class ThirdViewController: UIViewController, UITextFieldDelegate{
     //обработка изменения switch
     @IBAction func switchValueChanged(_ sender: Any) {
         if lungsSwitch.isOn{
-            lungsImage.tintColor = .systemGray
+            lungsImage.tintColor = .darkGray
         }else{
             lungsImage.tintColor = .systemPink
         }
@@ -75,8 +75,6 @@ class ThirdViewController: UIViewController, UITextFieldDelegate{
     //создание всего необходимого для textfield
     private func createTextField() {
         textFieldLabel.text = "TextField"
-//        textFieldLabel.minimumScaleFactor = 2
-//        textFieldLabel.adjustsFontSizeToFitWidth = true
         testTextField.placeholder = "Write here"
         testTextField.clearButtonMode = .whileEditing
         testTextField.returnKeyType = UIReturnKeyType.done
