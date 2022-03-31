@@ -30,13 +30,23 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
     private let moodIconImage = UIImageView()
     
     //Общие константы для constraint
-    private let longDistanceBetweenViews: CGFloat = 30
-    private let shortDistanceBetweenViews: CGFloat = 10
-    private let imageHeight: CGFloat = 90
-    private let imageWidth: CGFloat = 110
+    private enum ConstraintsConstants {
+        static let longDistanceBetweenViews: CGFloat = 30
+        static let shortDistanceBetweenViews: CGFloat = 10
+        
+        static let imageHeight: CGFloat = 90
+        static let imageWidth: CGFloat = 110
+        
+        static let labelWidth: CGFloat = 100
+        static let labelHeight: CGFloat = 20
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        print(UIScreen.main.bounds)
+        
         setupSwitchController()
         setupSliderController()
         setupTextFieldController()
@@ -53,24 +63,22 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
         lungsIconImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             lungsIconImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            lungsIconImage.widthAnchor.constraint(equalToConstant: imageWidth),
+            lungsIconImage.widthAnchor.constraint(equalToConstant: ConstraintsConstants.imageWidth),
             lungsIconImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                                constant: longDistanceBetweenViews),
-            lungsIconImage.heightAnchor.constraint(equalToConstant: imageHeight)
+                                                constant: ConstraintsConstants.longDistanceBetweenViews),
+            lungsIconImage.heightAnchor.constraint(equalToConstant: ConstraintsConstants.imageHeight)
         ])
         lungsIconImage.image = UIImage(systemName: "lungs")
         lungsIconImage.tintColor = .systemPink
         
         
-        let labelHeight: CGFloat = 20
-        let labelWidth: CGFloat = 100
         smokingLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             smokingLabel.centerXAnchor.constraint(equalTo: lungsIconImage.centerXAnchor),
-            smokingLabel.widthAnchor.constraint(equalToConstant: labelWidth),
+            smokingLabel.widthAnchor.constraint(equalToConstant: ConstraintsConstants.labelWidth),
             smokingLabel.topAnchor.constraint(equalTo: lungsIconImage.bottomAnchor,
-                                             constant: shortDistanceBetweenViews),
-            smokingLabel.heightAnchor.constraint(equalToConstant: labelHeight)
+                                              constant: ConstraintsConstants.shortDistanceBetweenViews),
+            smokingLabel.heightAnchor.constraint(equalToConstant: ConstraintsConstants.labelHeight)
         ])
         smokingLabel.text = "Smoking"
         smokingLabel.textAlignment = .center
@@ -81,7 +89,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
             lungsSwitch.centerXAnchor.constraint(equalTo: lungsIconImage.centerXAnchor),
             lungsSwitch.widthAnchor.constraint(equalToConstant: 50),
             lungsSwitch.topAnchor.constraint(equalTo: smokingLabel.bottomAnchor,
-                                             constant: shortDistanceBetweenViews),
+                                             constant: ConstraintsConstants.shortDistanceBetweenViews),
             lungsSwitch.heightAnchor.constraint(equalToConstant: 40)
         ])
         lungsSwitch.addTarget(self, action: #selector(self.switchValueChanged), for: .valueChanged)
@@ -106,10 +114,11 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
         testSliderLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             testSliderLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,
-                                                  constant: longDistanceBetweenViews),
-            testSliderLabel.widthAnchor.constraint(equalToConstant: 100),
-            testSliderLabel.topAnchor.constraint(equalTo: lungsSwitch.bottomAnchor, constant: longDistanceBetweenViews),
-            testSliderLabel.heightAnchor.constraint(equalToConstant: 20)
+                                                  constant: ConstraintsConstants.longDistanceBetweenViews),
+            testSliderLabel.widthAnchor.constraint(equalToConstant: ConstraintsConstants.labelWidth),
+            testSliderLabel.topAnchor.constraint(equalTo: lungsSwitch.bottomAnchor, constant:
+                                                    ConstraintsConstants.longDistanceBetweenViews),
+            testSliderLabel.heightAnchor.constraint(equalToConstant: ConstraintsConstants.labelHeight)
         ])
         testSliderLabel.text = "Slider"
         
@@ -117,8 +126,9 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
         testSlider.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             testSlider.leftAnchor.constraint(equalTo: testSliderLabel.rightAnchor,
-                                                  constant: longDistanceBetweenViews),
-            testSlider.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -longDistanceBetweenViews),
+                                             constant: ConstraintsConstants.longDistanceBetweenViews),
+            testSlider.rightAnchor.constraint(equalTo: view.rightAnchor, constant:
+                                                -ConstraintsConstants.longDistanceBetweenViews),
             testSlider.topAnchor.constraint(equalTo: testSliderLabel.topAnchor),
             testSlider.heightAnchor.constraint(equalToConstant: 20)
         ])
@@ -132,7 +142,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
             colorChangingView.leftAnchor.constraint(equalTo: testSliderLabel.leftAnchor),
             colorChangingView.rightAnchor.constraint(equalTo: testSlider.rightAnchor),
             colorChangingView.topAnchor.constraint(equalTo: testSlider.bottomAnchor,
-                                                   constant: shortDistanceBetweenViews),
+                                                   constant: ConstraintsConstants.shortDistanceBetweenViews),
             colorChangingView.heightAnchor.constraint(equalToConstant: 20)
         ])
         colorChangingView.backgroundColor = UIColor(red: CGFloat(testSlider.value), green: 0, blue: 0, alpha: 0.5)
@@ -150,9 +160,10 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
         
         testTextFieldLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            testTextFieldLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: longDistanceBetweenViews),
-            testTextFieldLabel.widthAnchor.constraint(equalToConstant: 100),
-            testTextFieldLabel.heightAnchor.constraint(equalToConstant: 20)
+            testTextFieldLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant:
+                                                        ConstraintsConstants.longDistanceBetweenViews),
+            testTextFieldLabel.widthAnchor.constraint(equalToConstant: ConstraintsConstants.labelWidth),
+            testTextFieldLabel.heightAnchor.constraint(equalToConstant: ConstraintsConstants.labelHeight)
         ])
         testTextFieldLabel.text = "Textfield"
         
@@ -160,7 +171,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
         testTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             testTextField.leftAnchor.constraint(equalTo: testTextFieldLabel.rightAnchor,
-                                                constant: shortDistanceBetweenViews),
+                                                constant: ConstraintsConstants.shortDistanceBetweenViews),
             testTextField.rightAnchor.constraint(equalTo: colorChangingView.rightAnchor),
             testTextField.topAnchor.constraint(equalTo: colorChangingView.bottomAnchor,
                                                 constant: 50),
@@ -192,10 +203,10 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
         moodSegmentPickerLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             moodSegmentPickerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            moodSegmentPickerLabel.widthAnchor.constraint(equalToConstant: 200),
+            moodSegmentPickerLabel.widthAnchor.constraint(equalToConstant: ConstraintsConstants.labelWidth),
             moodSegmentPickerLabel.topAnchor.constraint(equalTo: testTextFieldLabel.bottomAnchor,
                                                 constant: 50),
-            moodSegmentPickerLabel.heightAnchor.constraint(equalToConstant: 20)
+            moodSegmentPickerLabel.heightAnchor.constraint(equalToConstant: ConstraintsConstants.labelHeight)
         ])
         moodSegmentPickerLabel.text = "Pick one sigment"
         moodSegmentPickerLabel.textAlignment = .center
@@ -206,7 +217,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
             moodSegmentPicker.centerXAnchor.constraint(equalTo: moodSegmentPickerLabel.centerXAnchor),
             moodSegmentPicker.widthAnchor.constraint(equalToConstant: 200),
             moodSegmentPicker.topAnchor.constraint(equalTo: moodSegmentPickerLabel.bottomAnchor,
-                                                   constant: shortDistanceBetweenViews),
+                                                   constant: ConstraintsConstants.shortDistanceBetweenViews),
             moodSegmentPicker.heightAnchor.constraint(equalToConstant: 30)
         ])
         moodSegmentPicker.insertSegment(with: nil, at: 0, animated: true)
@@ -221,10 +232,10 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
         moodIconImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             moodIconImage.centerXAnchor.constraint(equalTo: moodSegmentPickerLabel.centerXAnchor),
-            moodIconImage.widthAnchor.constraint(equalToConstant: imageWidth),
+            moodIconImage.widthAnchor.constraint(equalToConstant: ConstraintsConstants.imageWidth),
             moodIconImage.topAnchor.constraint(equalTo: moodSegmentPicker.bottomAnchor,
-                                                constant: longDistanceBetweenViews),
-            moodIconImage.heightAnchor.constraint(equalToConstant: imageHeight)
+                                               constant: ConstraintsConstants.longDistanceBetweenViews),
+            moodIconImage.heightAnchor.constraint(equalToConstant: ConstraintsConstants.imageHeight)
         ])
         moodIconImage.image = UIImage(systemName: "person.fill.questionmark")
         moodIconImage.tintColor = .systemGray

@@ -14,7 +14,7 @@ final class InitialViewController: UIViewController{
         UITableView(frame: CGRect.zero, style: .grouped)
     }()
     
-    private enum cellsDisplayData: String, CaseIterable {
+    private enum СellsDisplayData: String, CaseIterable {
         case lab3 = "Лабораторная работа №3"
         case lab4 = "Лабораторная работа №4"
     }
@@ -75,14 +75,14 @@ extension InitialViewController: UITableViewDelegate {
 
 extension InitialViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellsDisplayData.allCases.count
+        return СellsDisplayData.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableViewController.dequeueReusableCell(withIdentifier: "InitialCell", for: indexPath) as? InitialCell else {
             fatalError()
         }
-        cell.configure(text: cellsDisplayData.allCases[indexPath.row].rawValue)
+        cell.configure(text: СellsDisplayData.allCases[indexPath.row].rawValue)
         return cell
     }
     

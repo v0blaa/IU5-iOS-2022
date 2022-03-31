@@ -14,6 +14,14 @@ final class BiologyTableCell: UITableViewCell {
     private let subTitleLabel = UILabel()
     private let iconImage = UIImageView()
     
+    private enum Constants {
+    static let iconHeigh: CGFloat = 60
+    static let iconWidth: CGFloat = 70
+    static let labelHeight: CGFloat = 20
+    static let horisontalDistance: CGFloat = 30
+    static let verticalDistance: CGFloat = 20
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: NSCoder())
         setupViews()
@@ -27,8 +35,8 @@ final class BiologyTableCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = ""
+        subTitleLabel.text = ""
         iconImage.image = nil
-        
     }
 
     private func setupViews() {
@@ -36,31 +44,26 @@ final class BiologyTableCell: UITableViewCell {
         contentView.addSubview(subTitleLabel)
         contentView.addSubview(iconImage)
         
-        let iconHeigh: CGFloat = 60
-        let iconWidth: CGFloat = 70
-        let horisontalDistance: CGFloat = 30
-        let verticalDistance: CGFloat = 20
-        
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: iconWidth + 2 * horisontalDistance),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -horisontalDistance),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: verticalDistance),
-            titleLabel.heightAnchor.constraint(equalToConstant: 20)
+            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.iconWidth + 2 * Constants.horisontalDistance),
+            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.horisontalDistance),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.verticalDistance),
+            titleLabel.heightAnchor.constraint(equalToConstant: Constants.labelHeight)
             ])
         
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            subTitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: iconWidth + 2 * horisontalDistance),
-            subTitleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -horisontalDistance),
-            subTitleLabel.heightAnchor.constraint(equalToConstant: 20),
-            subTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -verticalDistance)
+            subTitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.iconWidth + 2 * Constants.horisontalDistance),
+            subTitleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.horisontalDistance),
+            subTitleLabel.heightAnchor.constraint(equalToConstant: Constants.labelHeight),
+            subTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.verticalDistance)
             ])
         
-        iconImage.frame = CGRect(x: horisontalDistance,
-                                 y: verticalDistance,
-                                 width: iconWidth,
-                                 height: iconHeigh)
+        iconImage.frame = CGRect(x: Constants.horisontalDistance,
+                                 y: Constants.verticalDistance,
+                                 width: Constants.iconWidth,
+                                 height: Constants.iconHeigh)
     }
     
     func configure(title: String, subTitle: String, icon: UIImage) {

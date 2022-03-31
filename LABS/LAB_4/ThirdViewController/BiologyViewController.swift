@@ -15,17 +15,22 @@ final class BiologyViewController: UIViewController{
     }()
     
     //отображаемая в ячейках информация
-    private enum cellsDisplayTitle: String, CaseIterable {
+    private enum СellsDisplayTitle: String, CaseIterable {
         case brain = "Brain"
         case lungs = "Lungs"
     }
-    private enum cellsDisplaySubTitle: String, CaseIterable {
+    private enum СellsDisplaySubTitle: String, CaseIterable {
         case brain = "Nice brain"
         case lungs = "Awesome lungs"
     }
-    private enum cellsDisplayImages: String, CaseIterable {
+    private enum СellsDisplayImages: String, CaseIterable {
         case brain = "brain"
         case lungs = "lungs"
+    }
+    
+    private enum Constants {
+    static let heightForRow: CGFloat = 100
+    static let heightForHeaderFooter: CGFloat = 30
     }
     
     
@@ -36,7 +41,8 @@ final class BiologyViewController: UIViewController{
     
     private func setupTableView() {
         view.addSubview(tableViewController)
-
+        
+        view.backgroundColor = .systemBackground
         setupTableViewConstrains()
         tableViewController.delegate = self
         tableViewController.dataSource = self
@@ -75,7 +81,7 @@ final class BiologyViewController: UIViewController{
 
 extension BiologyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return Constants.heightForRow
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -85,7 +91,7 @@ extension BiologyViewController: UITableViewDelegate {
     
     //настройка header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return Constants.heightForHeaderFooter
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(
@@ -99,7 +105,7 @@ extension BiologyViewController: UITableViewDelegate {
 
     //настройка footer
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 30
+        return Constants.heightForHeaderFooter
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let footer = tableView.dequeueReusableHeaderFooterView(
@@ -114,16 +120,16 @@ extension BiologyViewController: UITableViewDelegate {
 
 extension BiologyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellsDisplayTitle.allCases.count
+        return СellsDisplayTitle.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableViewController.dequeueReusableCell(withIdentifier: "BiologyTableCell", for: indexPath) as? BiologyTableCell else {
             fatalError()
         }
-        cell.configure(title: cellsDisplayTitle.allCases[indexPath.row].rawValue,
-                       subTitle: cellsDisplaySubTitle.allCases[indexPath.row].rawValue,
-                       icon: UIImage(systemName: cellsDisplayImages.allCases[indexPath.row].rawValue)!)
+        cell.configure(title: СellsDisplayTitle.allCases[indexPath.row].rawValue,
+                       subTitle: СellsDisplaySubTitle.allCases[indexPath.row].rawValue,
+                       icon: UIImage(systemName: СellsDisplayImages.allCases[indexPath.row].rawValue)!)
         return cell
     }
 }
