@@ -43,6 +43,23 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
             static let width: CGFloat = 100
             static let height: CGFloat = 20
         }
+        enum Switch{
+            static let width: CGFloat = 50
+            static let height: CGFloat = 40
+        }
+        enum Slider{
+            static let height: CGFloat = 20
+        }
+        enum ColorView{
+            static let height: CGFloat = 20
+        }
+        enum TextField{
+            static let height: CGFloat = 30
+        }
+        enum SegmentPicker{
+            static let width: CGFloat = 200
+            static let height: CGFloat = 30
+        }
     }
 
     
@@ -91,10 +108,10 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
         lungsSwitch.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             lungsSwitch.centerXAnchor.constraint(equalTo: lungsIconImage.centerXAnchor),
-            lungsSwitch.widthAnchor.constraint(equalToConstant: 50),
+            lungsSwitch.widthAnchor.constraint(equalToConstant: Constants.Switch.width),
             lungsSwitch.topAnchor.constraint(equalTo: smokingLabel.bottomAnchor,
                                              constant: Constants.DistanceBetweenViews.short),
-            lungsSwitch.heightAnchor.constraint(equalToConstant: 40)
+            lungsSwitch.heightAnchor.constraint(equalToConstant: Constants.Switch.width)
         ])
         lungsSwitch.addTarget(self, action: #selector(self.switchValueChanged), for: .valueChanged)
     }
@@ -134,7 +151,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
             testSlider.rightAnchor.constraint(equalTo: view.rightAnchor, constant:
                                                 -Constants.DistanceBetweenViews.long),
             testSlider.topAnchor.constraint(equalTo: testSliderLabel.topAnchor),
-            testSlider.heightAnchor.constraint(equalToConstant: 20)
+            testSlider.heightAnchor.constraint(equalToConstant: Constants.Slider.height)
         ])
         testSlider.value = 0.5
         testSlider.tintColor = .systemRed
@@ -147,7 +164,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
             colorChangingView.rightAnchor.constraint(equalTo: testSlider.rightAnchor),
             colorChangingView.topAnchor.constraint(equalTo: testSlider.bottomAnchor,
                                                    constant: Constants.DistanceBetweenViews.short),
-            colorChangingView.heightAnchor.constraint(equalToConstant: 20)
+            colorChangingView.heightAnchor.constraint(equalToConstant: Constants.ColorView.height)
         ])
         colorChangingView.backgroundColor = UIColor(red: CGFloat(testSlider.value), green: 0, blue: 0, alpha: 0.5)
     }
@@ -178,8 +195,8 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
                                                 constant: Constants.DistanceBetweenViews.short),
             testTextField.rightAnchor.constraint(equalTo: colorChangingView.rightAnchor),
             testTextField.topAnchor.constraint(equalTo: colorChangingView.bottomAnchor,
-                                                constant: 50),
-            testTextField.heightAnchor.constraint(equalToConstant: 30),
+                                               constant: Constants.DistanceBetweenViews.long * 2),
+            testTextField.heightAnchor.constraint(equalToConstant: Constants.TextField.height),
             testTextFieldLabel.centerYAnchor.constraint(equalTo: testTextField.centerYAnchor)
         ])
         testTextField.placeholder = "Write something here"
@@ -207,22 +224,22 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate{
         moodSegmentPickerLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             moodSegmentPickerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            moodSegmentPickerLabel.widthAnchor.constraint(equalToConstant: Constants.Label.width),
+            moodSegmentPickerLabel.widthAnchor.constraint(equalToConstant: Constants.Label.width * 2),
             moodSegmentPickerLabel.topAnchor.constraint(equalTo: testTextFieldLabel.bottomAnchor,
-                                                constant: 50),
+                                                constant: Constants.DistanceBetweenViews.long * 2),
             moodSegmentPickerLabel.heightAnchor.constraint(equalToConstant: Constants.Label.height)
         ])
-        moodSegmentPickerLabel.text = "Pick one sigment"
+        moodSegmentPickerLabel.text = "Pick one segment"
         moodSegmentPickerLabel.textAlignment = .center
 
         
         moodSegmentPicker.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             moodSegmentPicker.centerXAnchor.constraint(equalTo: moodSegmentPickerLabel.centerXAnchor),
-            moodSegmentPicker.widthAnchor.constraint(equalToConstant: 200),
+            moodSegmentPicker.widthAnchor.constraint(equalToConstant: Constants.SegmentPicker.width),
             moodSegmentPicker.topAnchor.constraint(equalTo: moodSegmentPickerLabel.bottomAnchor,
                                                    constant: Constants.DistanceBetweenViews.short),
-            moodSegmentPicker.heightAnchor.constraint(equalToConstant: 30)
+            moodSegmentPicker.heightAnchor.constraint(equalToConstant: Constants.SegmentPicker.height)
         ])
         moodSegmentPicker.insertSegment(with: nil, at: 0, animated: true)
         moodSegmentPicker.setTitle("No", forSegmentAt: 0)
