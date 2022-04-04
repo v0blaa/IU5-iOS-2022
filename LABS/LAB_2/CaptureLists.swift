@@ -16,7 +16,7 @@ import Foundation
 // Решение кратко обоснуйте в блоке | Обоснование решения |.
 // Например: /* Я сделал …, т.к. это красиво */
 
-/* | Обоснование решения | */
+/* | Утечка памяти из-за цикла сильных ссылок в замыкании. Была выбрана unowned ссылка, а не weak, тк она не принимает значение nil.  Для решения самого задания с Шелдоном, в capture list была добавлена переменная number (благодаря этому другое замыкание не меняет её значение). | */
 
 
 final class CaptureLists {
@@ -26,7 +26,7 @@ final class CaptureLists {
     func disputeWithSheldonCooper(myFavouriteNumber: Int) {
         var number = myFavouriteNumber
         
-        let setValueInFavouriteNumber: () -> () = {
+        let setValueInFavouriteNumber: () -> () = { [unowned self, number] in
             self.favouriteNumber = number
         }
         
