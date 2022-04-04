@@ -27,6 +27,7 @@
 		7844CBAE27CA72DB00B4A094 /* ConcurrentPerformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844CBAD27CA72DB00B4A094 /* ConcurrentPerformTests.swift */; };
 		7844CBB027CADA8000B4A094 /* Shipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844CBAF27CADA7F00B4A094 /* Shipment.swift */; };
 		7844CBB227CADCD000B4A094 /* ShipmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844CBB127CADCD000B4A094 /* ShipmentTests.swift */; };
+		EE2F6A0827F105AE007F8120 /* HeaderFooterForBiologyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F6A0727F105AE007F8120 /* HeaderFooterForBiologyTable.swift */; };
 		EE5D505427E7C2E300C46370 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5D504A27E7C2E200C46370 /* LaunchScreen.storyboard */; };
 		EE5D505527E7C2E300C46370 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D504B27E7C2E200C46370 /* FirstCell.swift */; };
 		EE5D505627E7C2E300C46370 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D504C27E7C2E200C46370 /* ViewController.swift */; };
@@ -35,6 +36,12 @@
 		EE5D505927E7C2E300C46370 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D504F27E7C2E200C46370 /* AppDelegate.swift */; };
 		EE5D505A27E7C2E300C46370 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5D505027E7C2E200C46370 /* Main.storyboard */; };
 		EE5D505C27E7C2E300C46370 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D505227E7C2E300C46370 /* ThirdViewController.swift */; };
+		EE5D506027E7C7C100C46370 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D505F27E7C7C100C46370 /* InitialViewController.swift */; };
+		EE5D506427E8C88400C46370 /* InitialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506327E8C88400C46370 /* InitialCell.swift */; };
+		EE5D506727EB37B000C46370 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506627EB37B000C46370 /* MenuViewController.swift */; };
+		EE5D506C27EB47AE00C46370 /* BiologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506B27EB47AE00C46370 /* BiologyViewController.swift */; };
+		EE5D506E27EB568400C46370 /* BiologyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506D27EB568400C46370 /* BiologyTableCell.swift */; };
+		EE5D507327ED019D00C46370 /* ControllersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D507227ED019D00C46370 /* ControllersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +78,7 @@
 		7844CBAD27CA72DB00B4A094 /* ConcurrentPerformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentPerformTests.swift; sourceTree = "<group>"; };
 		7844CBAF27CADA7F00B4A094 /* Shipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shipment.swift; sourceTree = "<group>"; };
 		7844CBB127CADCD000B4A094 /* ShipmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentTests.swift; sourceTree = "<group>"; };
+		EE2F6A0727F105AE007F8120 /* HeaderFooterForBiologyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFooterForBiologyTable.swift; sourceTree = "<group>"; };
 		EE5D504A27E7C2E200C46370 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE5D504B27E7C2E200C46370 /* FirstCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
 		EE5D504C27E7C2E200C46370 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +87,12 @@
 		EE5D504F27E7C2E200C46370 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5D505027E7C2E200C46370 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EE5D505227E7C2E300C46370 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		EE5D505F27E7C7C100C46370 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		EE5D506327E8C88400C46370 /* InitialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCell.swift; sourceTree = "<group>"; };
+		EE5D506627EB37B000C46370 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		EE5D506B27EB47AE00C46370 /* BiologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiologyViewController.swift; sourceTree = "<group>"; };
+		EE5D506D27EB568400C46370 /* BiologyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiologyTableCell.swift; sourceTree = "<group>"; };
+		EE5D507227ED019D00C46370 /* ControllersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,14 +116,6 @@
 		7801412927D642C900E22965 /* LAB_3 */ = {
 			isa = PBXGroup;
 			children = (
-				EE5D504F27E7C2E200C46370 /* AppDelegate.swift */,
-				EE5D504D27E7C2E200C46370 /* Assets.xcassets */,
-				EE5D504B27E7C2E200C46370 /* FirstCell.swift */,
-				EE5D504A27E7C2E200C46370 /* LaunchScreen.storyboard */,
-				EE5D505027E7C2E200C46370 /* Main.storyboard */,
-				EE5D504E27E7C2E200C46370 /* TabelViewController.swift */,
-				EE5D505227E7C2E300C46370 /* ThirdViewController.swift */,
-				EE5D504C27E7C2E200C46370 /* ViewController.swift */,
 			);
 			path = LAB_3;
 			sourceTree = "<group>";
@@ -135,6 +141,7 @@
 		78052E8B27BA89A500BB3916 /* LABS */ = {
 			isa = PBXGroup;
 			children = (
+				EE5D505D27E7C72000C46370 /* LAB_4 */,
 				7801412927D642C900E22965 /* LAB_3 */,
 				7844CBA127C91DCA00B4A094 /* LAB_2 */,
 				7844CB9B27C2600A00B4A094 /* LAB_0 */,
@@ -222,6 +229,76 @@
 				7844CBB127CADCD000B4A094 /* ShipmentTests.swift */,
 			);
 			path = LAB_2;
+			sourceTree = "<group>";
+		};
+		EE5D505D27E7C72000C46370 /* LAB_4 */ = {
+			isa = PBXGroup;
+			children = (
+				EE5D505E27E7C77D00C46370 /* InitialViewController */,
+				EE5D506527EB378A00C46370 /* SecondViewController */,
+				EE5D506827EB471600C46370 /* ThirdViewController */,
+				EE5D506F27ECE13B00C46370 /* FourthViewController */,
+				EE5D504F27E7C2E200C46370 /* AppDelegate.swift */,
+				EE5D506127E7C7DF00C46370 /* StoryBoard */,
+				EE5D504D27E7C2E200C46370 /* Assets.xcassets */,
+				EE5D504A27E7C2E200C46370 /* LaunchScreen.storyboard */,
+			);
+			path = LAB_4;
+			sourceTree = "<group>";
+		};
+		EE5D505E27E7C77D00C46370 /* InitialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE5D506227E8767100C46370 /* Cell */,
+				EE5D505F27E7C7C100C46370 /* InitialViewController.swift */,
+			);
+			path = InitialViewController;
+			sourceTree = "<group>";
+		};
+		EE5D506127E7C7DF00C46370 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				EE5D504B27E7C2E200C46370 /* FirstCell.swift */,
+				EE5D505027E7C2E200C46370 /* Main.storyboard */,
+				EE5D504E27E7C2E200C46370 /* TabelViewController.swift */,
+				EE5D505227E7C2E300C46370 /* ThirdViewController.swift */,
+				EE5D504C27E7C2E200C46370 /* ViewController.swift */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		EE5D506227E8767100C46370 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EE5D506327E8C88400C46370 /* InitialCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EE5D506527EB378A00C46370 /* SecondViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE5D506627EB37B000C46370 /* MenuViewController.swift */,
+			);
+			path = SecondViewController;
+			sourceTree = "<group>";
+		};
+		EE5D506827EB471600C46370 /* ThirdViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE2F6A0727F105AE007F8120 /* HeaderFooterForBiologyTable.swift */,
+				EE5D506B27EB47AE00C46370 /* BiologyViewController.swift */,
+				EE5D506D27EB568400C46370 /* BiologyTableCell.swift */,
+			);
+			path = ThirdViewController;
+			sourceTree = "<group>";
+		};
+		EE5D506F27ECE13B00C46370 /* FourthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE5D507227ED019D00C46370 /* ControllersViewController.swift */,
+			);
+			path = FourthViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,10 +404,12 @@
 			files = (
 				7844CB9D27C2605D00B4A094 /* SwapValues.swift in Sources */,
 				EE5D505827E7C2E300C46370 /* TabelViewController.swift in Sources */,
+				EE2F6A0827F105AE007F8120 /* HeaderFooterForBiologyTable.swift in Sources */,
 				7844CBA327C91E3C00B4A094 /* ReferenceCycleResolver.swift in Sources */,
 				EE5D505927E7C2E300C46370 /* AppDelegate.swift in Sources */,
 				EE5D505527E7C2E300C46370 /* FirstCell.swift in Sources */,
 				7844CBB027CADA8000B4A094 /* Shipment.swift in Sources */,
+				EE5D507327ED019D00C46370 /* ControllersViewController.swift in Sources */,
 				7844CB9027C1A34200B4A094 /* NumberToArray.swift in Sources */,
 				78052EBF27BA8AC300BB3916 /* SequenceСreator.swift in Sources */,
 				7844CB9427C1A72600B4A094 /* BooleanConverter.swift in Sources */,
@@ -339,7 +418,12 @@
 				7844CBAA27CA47B000B4A094 /* CaptureLists.swift in Sources */,
 				7844CBA827CA476900B4A094 /* ConcurrentPerform.swift in Sources */,
 				EE5D505C27E7C2E300C46370 /* ThirdViewController.swift in Sources */,
+				EE5D506427E8C88400C46370 /* InitialCell.swift in Sources */,
 				15350EA627C23C01000CDAC3 /* ArrayToString.swift in Sources */,
+				EE5D506727EB37B000C46370 /* MenuViewController.swift in Sources */,
+				EE5D506027E7C7C100C46370 /* InitialViewController.swift in Sources */,
+				EE5D506E27EB568400C46370 /* BiologyTableCell.swift in Sources */,
+				EE5D506C27EB47AE00C46370 /* BiologyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +583,6 @@
 				INFOPLIST_FILE = LABS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -527,7 +610,6 @@
 				INFOPLIST_FILE = LABS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

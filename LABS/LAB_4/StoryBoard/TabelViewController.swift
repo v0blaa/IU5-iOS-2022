@@ -20,7 +20,6 @@ class TabelViewController: UIViewController {
     private func setupTable() {
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.register(FirstCell.self, forCellReuseIdentifier: "firstCell")
     }
 }
 
