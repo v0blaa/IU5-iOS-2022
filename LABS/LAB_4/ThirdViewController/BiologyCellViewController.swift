@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class BiologyTableCell: UITableViewCell {
+final class MVPBiologyCellViewController: UITableViewCell {
     
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()

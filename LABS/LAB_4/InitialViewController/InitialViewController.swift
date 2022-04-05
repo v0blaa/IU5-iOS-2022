@@ -10,6 +10,8 @@ import UIKit
 
 final class InitialViewController: UIViewController{
     
+    private var openedViewController: UIViewController?
+    
     private lazy var tableViewController: UITableView = {
         UITableView(frame: CGRect.zero, style: .grouped)
     }()
@@ -17,6 +19,7 @@ final class InitialViewController: UIViewController{
     private enum СellsDisplayData: String, CaseIterable {
         case lab3 = "Лабораторная работа №3"
         case lab4 = "Лабораторная работа №4"
+        case lab5 = "Лабораторная работа №5(MVP)"
     }
     
     override func viewDidLoad() {
@@ -62,11 +65,15 @@ extension InitialViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let thirdLabVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "Lab3Storyboard")
-            navigationController?.pushViewController(thirdLabVC, animated: true)
+            let viewController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "Lab3Storyboard")
+            navigationController?.pushViewController(viewController, animated: true)
         case 1:
-            let fourthLabVC = MenuViewController()
-            navigationController?.pushViewController(fourthLabVC, animated: true)
+            let viewController = MenuViewController()
+            navigationController?.pushViewController(viewController, animated: true)
+        case 2:
+            let builder = MVPMenuModuleBuilder()
+            let viewController = builder.build(output: self)
+            navigationController?.pushViewController(viewController, animated: true)
         default:
             break
         }
@@ -86,4 +93,16 @@ extension InitialViewController: UITableViewDataSource {
         return cell
     }
     
+}
+
+extension InitialViewController: MVPMenuModuleOutput, MVPBiologyTableModuleOutput {
+    func MVPControllersViewControllerWantsToOpen() {
+        print("lol")
+    }
+    
+    func MVPBiologyTableWantsToOpen() {
+        let builder = MVPBiologyTableModuleBuilder()
+        let viewController = builder.build(output: self)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }

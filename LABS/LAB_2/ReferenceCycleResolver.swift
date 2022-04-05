@@ -12,7 +12,7 @@ import Foundation
 // Решение кратко обоснуйте в блоке | Обоснование решения |.
 // Например: /* Я сделал …, т.к. это красиво */
 
-/* | Обоснование решения | */
+/* | Утечка памяти из-за цикла сильных ссылок между экземплярами классов. weak ссылка была использована в University, а не в Student, число логически: ВУЗ может существовать без студента, а студент без ВУЗа - нет. Я выбрала weak, а не unowned для сохранения опционального типа без лишних усилий. | */
 
 final class Student {
     let name: String
@@ -29,7 +29,7 @@ final class Student {
 final class University {
     let universityName: String
     
-    var student: Student?
+    weak var student: Student?
     
     init(universityName: String) {
         self.universityName = universityName

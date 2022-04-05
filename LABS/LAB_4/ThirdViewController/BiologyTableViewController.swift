@@ -56,7 +56,7 @@ final class BiologyViewController: UIViewController{
     }
     
     private func registerCell() {
-        tableViewController.register(BiologyTableCell.self, forCellReuseIdentifier: "BiologyTableCell")
+        tableViewController.register(MVPBiologyCellViewController.self, forCellReuseIdentifier: "BiologyTableCell")
     }
     
     private func registerHeader() {
@@ -124,7 +124,7 @@ extension BiologyViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableViewController.dequeueReusableCell(withIdentifier: "BiologyTableCell", for: indexPath) as? BiologyTableCell else {
+        guard let cell = tableViewController.dequeueReusableCell(withIdentifier: "BiologyTableCell", for: indexPath) as? MVPBiologyCellViewController else {
             fatalError()
         }
         cell.configure(title: СellsDisplayTitle.allCases[indexPath.row].rawValue,
