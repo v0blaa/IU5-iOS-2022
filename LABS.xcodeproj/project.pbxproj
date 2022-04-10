@@ -27,6 +27,8 @@
 		7844CBAE27CA72DB00B4A094 /* ConcurrentPerformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844CBAD27CA72DB00B4A094 /* ConcurrentPerformTests.swift */; };
 		7844CBB027CADA8000B4A094 /* Shipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844CBAF27CADA7F00B4A094 /* Shipment.swift */; };
 		7844CBB227CADCD000B4A094 /* ShipmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844CBB127CADCD000B4A094 /* ShipmentTests.swift */; };
+		EE0F15AF2800E65C00DB0D8B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F15AE2800E65C00DB0D8B /* NetworkService.swift */; };
+		EE0F15B32800E69900DB0D8B /* NetworkRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F15B22800E69900DB0D8B /* NetworkRequestFactory.swift */; };
 		EE2F6A0827F105AE007F8120 /* HeaderFooterForBiologyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F6A0727F105AE007F8120 /* HeaderFooterForBiologyTable.swift */; };
 		EE5D505427E7C2E300C46370 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5D504A27E7C2E200C46370 /* LaunchScreen.storyboard */; };
 		EE5D505527E7C2E300C46370 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D504B27E7C2E200C46370 /* FirstCell.swift */; };
@@ -42,6 +44,20 @@
 		EE5D506C27EB47AE00C46370 /* BiologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506B27EB47AE00C46370 /* BiologyTableViewController.swift */; };
 		EE5D506E27EB568400C46370 /* BiologyCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506D27EB568400C46370 /* BiologyCellViewController.swift */; };
 		EE5D507327ED019D00C46370 /* ControllersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D507227ED019D00C46370 /* ControllersViewController.swift */; };
+		EE9BF0D62801D1A3004C8AB5 /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0D52801D1A3004C8AB5 /* GameEntity.swift */; };
+		EE9BF0D82801D1BB004C8AB5 /* GameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0D72801D1BB004C8AB5 /* GameRouter.swift */; };
+		EE9BF0DA2801D238004C8AB5 /* GameInteractorIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0D92801D238004C8AB5 /* GameInteractorIO.swift */; };
+		EE9BF0DC2801D23E004C8AB5 /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0DB2801D23E004C8AB5 /* GameInteractor.swift */; };
+		EE9BF0DE2801D25A004C8AB5 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0DD2801D25A004C8AB5 /* GamePresenter.swift */; };
+		EE9BF0E02801D268004C8AB5 /* GamePresenterIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0DF2801D268004C8AB5 /* GamePresenterIO.swift */; };
+		EE9BF0E22801D27E004C8AB5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0E12801D27E004C8AB5 /* GameViewController.swift */; };
+		EE9BF0E42801D287004C8AB5 /* GameViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0E32801D287004C8AB5 /* GameViewIO.swift */; };
+		EE9BF0E82801D2F8004C8AB5 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0E72801D2F8004C8AB5 /* MenuTableViewController.swift */; };
+		EE9BF0EA2801D679004C8AB5 /* HeaderForGameMenuTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0E92801D679004C8AB5 /* HeaderForGameMenuTable.swift */; };
+		EE9BF0EC2801D6B2004C8AB5 /* GameMenuTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0EB2801D6B2004C8AB5 /* GameMenuTableCellViewController.swift */; };
+		EE9BF0F02801E22F004C8AB5 /* GameModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0EF2801E22F004C8AB5 /* GameModuleBuilder.swift */; };
+		EE9BF0F228022CA0004C8AB5 /* GameForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0F128022CA0004C8AB5 /* GameForecast.swift */; };
+		EE9BF0F428022D31004C8AB5 /* GameCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9BF0F328022D31004C8AB5 /* GameCategory.swift */; };
 		EE9DBB3C27F97BCB00F6C079 /* MVPBiologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB3B27F97BCB00F6C079 /* MVPBiologyTableViewController.swift */; };
 		EE9DBB3E27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB3D27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift */; };
 		EE9DBB4027F97C3D00F6C079 /* MVPBiologyTableViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB3F27F97C3D00F6C079 /* MVPBiologyTableViewIO.swift */; };
@@ -98,6 +114,8 @@
 		7844CBAD27CA72DB00B4A094 /* ConcurrentPerformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentPerformTests.swift; sourceTree = "<group>"; };
 		7844CBAF27CADA7F00B4A094 /* Shipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shipment.swift; sourceTree = "<group>"; };
 		7844CBB127CADCD000B4A094 /* ShipmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentTests.swift; sourceTree = "<group>"; };
+		EE0F15AE2800E65C00DB0D8B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		EE0F15B22800E69900DB0D8B /* NetworkRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestFactory.swift; sourceTree = "<group>"; };
 		EE2F6A0727F105AE007F8120 /* HeaderFooterForBiologyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFooterForBiologyTable.swift; sourceTree = "<group>"; };
 		EE5D504A27E7C2E200C46370 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE5D504B27E7C2E200C46370 /* FirstCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
@@ -113,6 +131,20 @@
 		EE5D506B27EB47AE00C46370 /* BiologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiologyTableViewController.swift; sourceTree = "<group>"; };
 		EE5D506D27EB568400C46370 /* BiologyCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiologyCellViewController.swift; sourceTree = "<group>"; };
 		EE5D507227ED019D00C46370 /* ControllersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersViewController.swift; sourceTree = "<group>"; };
+		EE9BF0D52801D1A3004C8AB5 /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
+		EE9BF0D72801D1BB004C8AB5 /* GameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRouter.swift; sourceTree = "<group>"; };
+		EE9BF0D92801D238004C8AB5 /* GameInteractorIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractorIO.swift; sourceTree = "<group>"; };
+		EE9BF0DB2801D23E004C8AB5 /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
+		EE9BF0DD2801D25A004C8AB5 /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
+		EE9BF0DF2801D268004C8AB5 /* GamePresenterIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenterIO.swift; sourceTree = "<group>"; };
+		EE9BF0E12801D27E004C8AB5 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		EE9BF0E32801D287004C8AB5 /* GameViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewIO.swift; sourceTree = "<group>"; };
+		EE9BF0E72801D2F8004C8AB5 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		EE9BF0E92801D679004C8AB5 /* HeaderForGameMenuTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderForGameMenuTable.swift; sourceTree = "<group>"; };
+		EE9BF0EB2801D6B2004C8AB5 /* GameMenuTableCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenuTableCellViewController.swift; sourceTree = "<group>"; };
+		EE9BF0EF2801E22F004C8AB5 /* GameModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModuleBuilder.swift; sourceTree = "<group>"; };
+		EE9BF0F128022CA0004C8AB5 /* GameForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameForecast.swift; sourceTree = "<group>"; };
+		EE9BF0F328022D31004C8AB5 /* GameCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCategory.swift; sourceTree = "<group>"; };
 		EE9DBB3B27F97BCB00F6C079 /* MVPBiologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPBiologyTableViewController.swift; sourceTree = "<group>"; };
 		EE9DBB3D27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPBiologyTableModuleBuilder.swift; sourceTree = "<group>"; };
 		EE9DBB3F27F97C3D00F6C079 /* MVPBiologyTableViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPBiologyTableViewIO.swift; sourceTree = "<group>"; };
@@ -181,6 +213,7 @@
 		78052E8B27BA89A500BB3916 /* LABS */ = {
 			isa = PBXGroup;
 			children = (
+				EE0F15AB2800E60700DB0D8B /* LAB_6 */,
 				EE9DBB2F27F978A400F6C079 /* LAB_5 */,
 				EE5D505D27E7C72000C46370 /* LAB_4 */,
 				7801412927D642C900E22965 /* LAB_3 */,
@@ -272,6 +305,90 @@
 			path = LAB_2;
 			sourceTree = "<group>";
 		};
+		EE0F15AB2800E60700DB0D8B /* LAB_6 */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BF0E52801D28F004C8AB5 /* Game */,
+				EE0F15AC2800E62500DB0D8B /* Models */,
+				EE0F15AD2800E63500DB0D8B /* Services */,
+			);
+			path = LAB_6;
+			sourceTree = "<group>";
+		};
+		EE0F15AC2800E62500DB0D8B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BF0F128022CA0004C8AB5 /* GameForecast.swift */,
+				EE9BF0F328022D31004C8AB5 /* GameCategory.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EE0F15AD2800E63500DB0D8B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EE0F15AE2800E65C00DB0D8B /* NetworkService.swift */,
+				EE0F15B22800E69900DB0D8B /* NetworkRequestFactory.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EE0F15B42801D07600DB0D8B /* GamePage */ = {
+			isa = PBXGroup;
+			children = (
+				EE0F15B52801D08700DB0D8B /* Entity */,
+				EE0F15B62801D0AF00DB0D8B /* Router */,
+				EE0F15B92801D0C300DB0D8B /* Interactor */,
+				EE0F15B82801D0BA00DB0D8B /* Presenter */,
+				EE0F15B72801D0B500DB0D8B /* View */,
+				EE9BF0EF2801E22F004C8AB5 /* GameModuleBuilder.swift */,
+			);
+			path = GamePage;
+			sourceTree = "<group>";
+		};
+		EE0F15B52801D08700DB0D8B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BF0D52801D1A3004C8AB5 /* GameEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		EE0F15B62801D0AF00DB0D8B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BF0D72801D1BB004C8AB5 /* GameRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		EE0F15B72801D0B500DB0D8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BF0E32801D287004C8AB5 /* GameViewIO.swift */,
+				EE9BF0E12801D27E004C8AB5 /* GameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE0F15B82801D0BA00DB0D8B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BF0DF2801D268004C8AB5 /* GamePresenterIO.swift */,
+				EE9BF0DD2801D25A004C8AB5 /* GamePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		EE0F15B92801D0C300DB0D8B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BF0D92801D238004C8AB5 /* GameInteractorIO.swift */,
+				EE9BF0DB2801D23E004C8AB5 /* GameInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		EE5D505D27E7C72000C46370 /* LAB_4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +457,25 @@
 				EE5D507227ED019D00C46370 /* ControllersViewController.swift */,
 			);
 			path = FourthViewController;
+			sourceTree = "<group>";
+		};
+		EE9BF0E52801D28F004C8AB5 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BF0E62801D29C004C8AB5 /* GameMenu */,
+				EE0F15B42801D07600DB0D8B /* GamePage */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		EE9BF0E62801D29C004C8AB5 /* GameMenu */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BF0E92801D679004C8AB5 /* HeaderForGameMenuTable.swift */,
+				EE9BF0E72801D2F8004C8AB5 /* MenuTableViewController.swift */,
+				EE9BF0EB2801D6B2004C8AB5 /* GameMenuTableCellViewController.swift */,
+			);
+			path = GameMenu;
 			sourceTree = "<group>";
 		};
 		EE9DBB2F27F978A400F6C079 /* LAB_5 */ = {
@@ -583,9 +719,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE9DBB4C27F9802F00F6C079 /* MVPMenuModuleIO.swift in Sources */,
+				EE9BF0F428022D31004C8AB5 /* GameCategory.swift in Sources */,
+				EE9BF0EC2801D6B2004C8AB5 /* GameMenuTableCellViewController.swift in Sources */,
 				7844CB9D27C2605D00B4A094 /* SwapValues.swift in Sources */,
+				EE9BF0D82801D1BB004C8AB5 /* GameRouter.swift in Sources */,
 				EE5D505827E7C2E300C46370 /* TabelViewController.swift in Sources */,
+				EE9BF0E22801D27E004C8AB5 /* GameViewController.swift in Sources */,
 				EE2F6A0827F105AE007F8120 /* HeaderFooterForBiologyTable.swift in Sources */,
+				EE0F15AF2800E65C00DB0D8B /* NetworkService.swift in Sources */,
 				EE9DBB7527FB7E5200F6C079 /* ViperControllerModuleBuilder.swift in Sources */,
 				7844CBA327C91E3C00B4A094 /* ReferenceCycleResolver.swift in Sources */,
 				EE9DBB6A27FA3F2D00F6C079 /* ViperControllersViewIO.swift in Sources */,
@@ -593,12 +734,16 @@
 				EE5D505527E7C2E300C46370 /* FirstCell.swift in Sources */,
 				EE9DBB4E27F9804800F6C079 /* MVPMenuPresenter.swift in Sources */,
 				EE9DBB4227F97C5000F6C079 /* MVPBiologyTableModuleIO.swift in Sources */,
+				EE0F15B32800E69900DB0D8B /* NetworkRequestFactory.swift in Sources */,
+				EE9BF0E42801D287004C8AB5 /* GameViewIO.swift in Sources */,
 				EE9DBB6827FA3F1F00F6C079 /* ViperControllersViewController.swift in Sources */,
 				EE9DBB7227FB7B5100F6C079 /* ViperControllersRouter.swift in Sources */,
 				EE9DBB5B27FA10F200F6C079 /* MVPBiologyCellViewController.swift in Sources */,
 				EE9DBB5227F9807700F6C079 /* MVPMenuViewIO.swift in Sources */,
 				7844CBB027CADA8000B4A094 /* Shipment.swift in Sources */,
 				EE5D507327ED019D00C46370 /* ControllersViewController.swift in Sources */,
+				EE9BF0EA2801D679004C8AB5 /* HeaderForGameMenuTable.swift in Sources */,
+				EE9BF0D62801D1A3004C8AB5 /* GameEntity.swift in Sources */,
 				7844CB9027C1A34200B4A094 /* NumberToArray.swift in Sources */,
 				78052EBF27BA8AC300BB3916 /* SequenceСreator.swift in Sources */,
 				EE9DBB7727FB819600F6C079 /* ViperControllersIntersctorIO.swift in Sources */,
@@ -608,21 +753,28 @@
 				EE9DBB5027F9806B00F6C079 /* MVPMenuViewController.swift in Sources */,
 				EE9DBB4A27F9801F00F6C079 /* MVPMenuModuleBuilder.swift in Sources */,
 				EE9DBB4427F97C6800F6C079 /* MVPBiologyTablePresenter.swift in Sources */,
+				EE9BF0E82801D2F8004C8AB5 /* MenuTableViewController.swift in Sources */,
 				EE9DBB7927FB826A00F6C079 /* ViperControllersPresenterIO.swift in Sources */,
 				7844CBAA27CA47B000B4A094 /* CaptureLists.swift in Sources */,
 				7844CBA827CA476900B4A094 /* ConcurrentPerform.swift in Sources */,
+				EE9BF0F02801E22F004C8AB5 /* GameModuleBuilder.swift in Sources */,
 				EE9DBB7C27FCC96600F6C079 /* ViperControllersEntity.swift in Sources */,
 				EE5D505C27E7C2E300C46370 /* ThirdViewController.swift in Sources */,
 				EE5D506427E8C88400C46370 /* InitialCell.swift in Sources */,
 				15350EA627C23C01000CDAC3 /* ArrayToString.swift in Sources */,
 				EE9DBB3E27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift in Sources */,
+				EE9BF0DE2801D25A004C8AB5 /* GamePresenter.swift in Sources */,
+				EE9BF0E02801D268004C8AB5 /* GamePresenterIO.swift in Sources */,
 				EE9DBB3C27F97BCB00F6C079 /* MVPBiologyTableViewController.swift in Sources */,
 				EE9DBB6F27FB701600F6C079 /* ViperControllersInteractor.swift in Sources */,
 				EE5D506727EB37B000C46370 /* MenuViewController.swift in Sources */,
+				EE9BF0F228022CA0004C8AB5 /* GameForecast.swift in Sources */,
 				EE9DBB4027F97C3D00F6C079 /* MVPBiologyTableViewIO.swift in Sources */,
 				EE9DBB6627FA3F0900F6C079 /* ViperControllersPresenter.swift in Sources */,
 				EE5D506027E7C7C100C46370 /* InitialViewController.swift in Sources */,
 				EE5D506E27EB568400C46370 /* BiologyCellViewController.swift in Sources */,
+				EE9BF0DA2801D238004C8AB5 /* GameInteractorIO.swift in Sources */,
+				EE9BF0DC2801D23E004C8AB5 /* GameInteractor.swift in Sources */,
 				EE5D506C27EB47AE00C46370 /* BiologyTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

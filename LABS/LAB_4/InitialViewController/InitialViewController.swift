@@ -19,7 +19,8 @@ final class InitialViewController: UIViewController{
     private enum СellsDisplayData: String, CaseIterable {
         case lab3 = "Лабораторная работа №3"
         case lab4 = "Лабораторная работа №4"
-        case lab5 = "Лабораторная работа №5(MVP)"
+        case lab5 = "Лабораторная работа №5"
+        case lab6 = "Лабораторная работа №6"
     }
     
     override func viewDidLoad() {
@@ -73,6 +74,9 @@ extension InitialViewController: UITableViewDelegate {
         case 2:
             let builder = MVPMenuModuleBuilder()
             let viewController = builder.build(output: self)
+            navigationController?.pushViewController(viewController, animated: true)
+        case 3:
+            let viewController = MenuTableViewController()
             navigationController?.pushViewController(viewController, animated: true)
         default:
             break

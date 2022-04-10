@@ -1,17 +1,16 @@
 //
-//  BiologyTableCell.swift
+//  GameMenuTableCellViewController.swift
 //  LABS
 //
-//  Created by Сергей Адольевич on 23.03.2022.
+//  Created by Сергей Адольевич on 09.04.2022.
 //
 
 import Foundation
 import UIKit
 
-final class BiologyCellViewController: UITableViewCell {
+final class GameMenuTableCellViewController: UITableViewCell {
     
     private let titleLabel = UILabel()
-    private let subTitleLabel = UILabel()
     private let iconImage = UIImageView()
     
     private enum Constants {
@@ -41,13 +40,11 @@ final class BiologyCellViewController: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = ""
-        subTitleLabel.text = ""
         iconImage.image = nil
     }
 
     private func setupViews() {
         contentView.addSubview(titleLabel)
-        contentView.addSubview(subTitleLabel)
         contentView.addSubview(iconImage)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -56,17 +53,8 @@ final class BiologyCellViewController: UITableViewCell {
                                              constant: Constants.Icon.width + 2 * Constants.Distance.horisontal),
             titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor,
                                               constant: -Constants.Distance.horisontal),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Distance.vertical),
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: Constants.Label.height)
-            ])
-        
-        subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            subTitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor,
-                                                constant: Constants.Icon.width + 2 * Constants.Distance.horisontal),
-            subTitleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.Distance.horisontal),
-            subTitleLabel.heightAnchor.constraint(equalToConstant: Constants.Label.height),
-            subTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.Distance.vertical)
             ])
         
         iconImage.frame = CGRect(x: Constants.Distance.horisontal,
@@ -75,12 +63,10 @@ final class BiologyCellViewController: UITableViewCell {
                                  height: Constants.Icon.heigh)
     }
     
-    func configure(title: String, subTitle: String, icon: UIImage) {
-        titleLabel.font = titleLabel.font.withSize(20)
-        subTitleLabel.font = subTitleLabel.font.withSize(14)
+    func configure(title: String, icon: UIImage) {
+        titleLabel.font = titleLabel.font.withSize(24)
         
         titleLabel.text = title
-        subTitleLabel.text = subTitle
         iconImage.image = icon
     }
 }
