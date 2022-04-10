@@ -142,7 +142,11 @@ final class GameViewController: UIViewController {
         correctAnswerLabel.font = correctAnswerLabel.font.withSize(Constants.CorrectAnswerLabel.fontSize)
     }
     @objc func buttonClicked() {
-        answerTextField.backgroundColor = output.buttonClicked(userAnswer: answerTextField.text)
+        answerTextField.backgroundColor = output.checkAnswer(userAnswer: answerTextField.text)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        answerTextField.backgroundColor = output.checkAnswer(userAnswer: answerTextField.text)
+        return true
     }
 }
 extension GameViewController: UITextFieldDelegate {

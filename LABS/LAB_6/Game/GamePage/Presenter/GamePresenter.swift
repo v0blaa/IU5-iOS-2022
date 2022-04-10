@@ -39,7 +39,7 @@ extension GamePresenter: GameViewOutput {
         }
     }
     
-    func buttonClicked(userAnswer usersAnswer: String?) -> UIColor {
+    func checkAnswer(userAnswer usersAnswer: String?) -> UIColor {
         if data.ansverText.lowercased() == usersAnswer?.lowercased() {
             return .green
         } else {
