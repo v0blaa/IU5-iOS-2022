@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+//суть программы: беру с сайта с базой вопросов для викторины рандомный вопрос
+//на выбранную пользователем тему
+//пользователь отвечает на вопрос и проверяет ответ (textfield загорается красным или зеленым в зависимости
+//от правильности ответа)
 final class GameMenuTableCellViewController: UITableViewCell {
     
     private let titleLabel = UILabel()
