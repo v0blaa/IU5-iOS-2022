@@ -206,6 +206,7 @@ final class GameViewController: UIViewController {
     func clearAnswerTextField() {
         print("clear")
         answerTextField.text = ""
+        answerTextField.backgroundColor = .systemBackground
     }
 }
 extension GameViewController: UITextFieldDelegate {
