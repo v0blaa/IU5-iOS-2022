@@ -23,7 +23,7 @@ final class GameMenuTableCellViewController: UITableViewCell {
             static let width: CGFloat = 70
         }
         enum Label{
-            static let height: CGFloat = 20
+            static let height: CGFloat = 30
         }
         enum Distance{
             static let horisontal: CGFloat = 30

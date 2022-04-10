@@ -16,6 +16,7 @@ final class GameViewController: UIViewController {
     private let answerTextField = UITextField()
     private let answerButton = UIButton()
     private let correctAnswerLabel = UILabel()
+    private let nextQuestionButton = UIButton()
     
     private enum Constants {
         enum Distances {
@@ -43,6 +44,10 @@ final class GameViewController: UIViewController {
             static let height: CGFloat = 15
             static let fontSize: CGFloat = 12
         }
+        enum NextQuestionButton {
+            static let width: CGFloat = 200
+            static let height: CGFloat = AnswerButton.height
+        }
     }
     
     var output: GameViewOutput!
@@ -54,9 +59,17 @@ final class GameViewController: UIViewController {
         output.setGameData(viewController: self)
     }
     
-    //сам вопрос
-    func setupQuestionLabel(questionLabelText: String) {
+    func addSubviews() {
         view.addSubview(questionLabel)
+        view.addSubview(themeTitleLabel)
+        view.addSubview(answerTextField)
+        view.addSubview(answerButton)
+        view.addSubview(correctAnswerLabel)
+        view.addSubview(nextQuestionButton)
+    }
+    
+    func setupConstraints() {
+        //вопрос
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             questionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -64,15 +77,8 @@ final class GameViewController: UIViewController {
             questionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor,
                                                    constant: Constants.QuestionLabel.centerYConstant)
             ])
-        questionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        questionLabel.numberOfLines = 0
-        questionLabel.textAlignment = .center
-        questionLabel.font = .italicSystemFont(ofSize: Constants.QuestionLabel.fontSize)
-        questionLabel.text = questionLabelText
-    }
-    
-    func setupThemeTitle(categoryTitleText: String) {
-        view.addSubview(themeTitleLabel)
+        
+        //название темы
         themeTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             themeTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -80,16 +86,8 @@ final class GameViewController: UIViewController {
             themeTitleLabel.bottomAnchor.constraint(equalTo: questionLabel.topAnchor,
                                                     constant: -Constants.Distances.short)
             ])
-        themeTitleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        themeTitleLabel.numberOfLines = 0
-        themeTitleLabel.textAlignment = .center
-        themeTitleLabel.font = .boldSystemFont(ofSize: Constants.ThemeTitleLabel.fontSize)
-        themeTitleLabel.text = categoryTitleText
-    }
-    
-    //поле для ввода ответа
-    func setupTextfield(textfieldPlaceholder: String) {
-        view.addSubview(answerTextField)
+        
+        //поле ввода ответа
         answerTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             answerTextField.leftAnchor.constraint(equalTo: view.leftAnchor,
@@ -100,17 +98,8 @@ final class GameViewController: UIViewController {
                                                  constant: Constants.Distances.long),
             answerTextField.heightAnchor.constraint(equalToConstant: Constants.AnswerTextField.height)
             ])
-        answerTextField.placeholder = textfieldPlaceholder
-        answerTextField.borderStyle = UITextField.BorderStyle.roundedRect
-        answerTextField.clearButtonMode = UITextField.ViewMode.whileEditing
-        answerTextField.returnKeyType = UIReturnKeyType.done
-        answerTextField.delegate = self
         
-    }
-    
-    //кнопка для отправки ответа
-    func setupAnswerButton(answerButtonText: String) {
-        view.addSubview(answerButton)
+        //кнопка ответа
         answerButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             answerButton.leftAnchor.constraint(equalTo: answerTextField.rightAnchor,
@@ -119,16 +108,8 @@ final class GameViewController: UIViewController {
             answerButton.centerYAnchor.constraint(equalTo: answerTextField.centerYAnchor),
             answerButton.heightAnchor.constraint(equalToConstant: Constants.AnswerButton.height)
             ])
-        answerButton.layer.cornerRadius = 10
-        answerButton.backgroundColor = .blue
-        answerButton.setTitle(answerButtonText, for: .normal)
-        answerButton.setTitleColor(.white, for: .normal)
-        answerButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-    }
-    
-    //правильный ответ (отображается внизу экрана)
-    func setupCorrectAnswerLabel(correctAnswerLabelText: String) {
-        view.addSubview(correctAnswerLabel)
+        
+        //правильный ответ
         correctAnswerLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             correctAnswerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -136,17 +117,95 @@ final class GameViewController: UIViewController {
             correctAnswerLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             correctAnswerLabel.heightAnchor.constraint(equalToConstant: Constants.CorrectAnswerLabel.height)
             ])
+        
+        //кнопка перехода к следующему вопросу
+        nextQuestionButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nextQuestionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            nextQuestionButton.widthAnchor.constraint(equalToConstant: Constants.NextQuestionButton.width),
+            nextQuestionButton.topAnchor.constraint(equalTo: answerTextField.bottomAnchor,
+                                                       constant: Constants.Distances.long),
+            nextQuestionButton.heightAnchor.constraint(equalToConstant: Constants.NextQuestionButton.height)
+            ])
+    }
+    
+    //название категории вопроса
+    func setupCategoryTitle(categoryTitleText: String) {
+    
+        themeTitleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        themeTitleLabel.numberOfLines = 0
+        themeTitleLabel.textAlignment = .center
+        themeTitleLabel.font = .boldSystemFont(ofSize: Constants.ThemeTitleLabel.fontSize)
+        themeTitleLabel.text = categoryTitleText
+    }
+    
+    //сам вопрос
+    func setupQuestionLabel(questionLabelText: String) {
+        
+        questionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        questionLabel.numberOfLines = 0
+        questionLabel.textAlignment = .center
+        questionLabel.font = .italicSystemFont(ofSize: Constants.QuestionLabel.fontSize)
+        questionLabel.text = questionLabelText
+    }
+    
+    //поле для ввода ответа
+    func setupTextfield(textfieldPlaceholder: String) {
+
+        answerTextField.placeholder = textfieldPlaceholder
+        answerTextField.borderStyle = UITextField.BorderStyle.roundedRect
+        answerTextField.clearButtonMode = UITextField.ViewMode.whileEditing
+        answerTextField.returnKeyType = UIReturnKeyType.done
+        answerTextField.delegate = self
+        answerTextField.autocorrectionType = .no
+        
+    }
+    
+    //кнопка для отправки ответа
+    func setupAnswerButton(answerButtonText: String) {
+        
+        answerButton.layer.cornerRadius = 10
+        answerButton.backgroundColor = .systemBlue
+        answerButton.setTitle(answerButtonText, for: .normal)
+        answerButton.setTitleColor(.white, for: .normal)
+        answerButton.addTarget(self, action: #selector(answerButtonClicked), for: .touchUpInside)
+    }
+    
+    //правильный ответ (отображается внизу экрана)
+    func setupCorrectAnswerLabel(correctAnswerLabelText: String) {
+       
         correctAnswerLabel.text = correctAnswerLabelText
         correctAnswerLabel.textAlignment = .center
         correctAnswerLabel.textColor = .systemGray2
         correctAnswerLabel.font = correctAnswerLabel.font.withSize(Constants.CorrectAnswerLabel.fontSize)
     }
-    @objc func buttonClicked() {
+    
+    //кнопка перехода к следующему вопросу
+    func setuoNextQuestionButton(nextQuestionButtonText: String) {
+        
+        nextQuestionButton.layer.cornerRadius = 10
+        nextQuestionButton.backgroundColor = .systemGray
+        nextQuestionButton.setTitle(nextQuestionButtonText, for: .normal)
+        nextQuestionButton.setTitleColor(.white, for: .normal)
+        nextQuestionButton.addTarget(self, action: #selector(nextQuestionButtonClicked), for: .touchUpInside)
+    }
+    
+    //функции для обработки событий
+    @objc func answerButtonClicked() {
         answerTextField.backgroundColor = output.checkAnswer(userAnswer: answerTextField.text)
+    }
+    @objc func nextQuestionButtonClicked() {
+        output.setNextQuestion(viewController: self)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         answerTextField.backgroundColor = output.checkAnswer(userAnswer: answerTextField.text)
         return true
+    }
+    
+    //очистка textfield для нового вопроса
+    func clearAnswerTextField() {
+        print("clear")
+        answerTextField.text = ""
     }
 }
 extension GameViewController: UITextFieldDelegate {

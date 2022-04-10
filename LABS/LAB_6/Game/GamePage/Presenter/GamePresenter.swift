@@ -14,7 +14,8 @@ final class GamePresenter {
     private var interactor: GameInteractorInput!
     private var router: GameRouterInput?
     weak var view: GameViewInput!
-    private var data: GameData
+    private var dataMas: [GameData]
+    private var curData: GameData
     
     
     init(view: GameViewInput,
@@ -23,38 +24,58 @@ final class GamePresenter {
         self.view = view
         self.interactor = interactor
         self.router = router
-        self.data = GameData(categoryText: "", questionText: "", ansverText: "")
+        self.curData = GameData(categoryText: "", questionText: "", ansverText: "")
+        self.dataMas = []
     }
 }
 extension GamePresenter: GameViewOutput {
     func setGameData(viewController: GameViewController) {
         interactor.getGameForecast(){
-        DispatchQueue.main.async{
-            viewController.setupQuestionLabel(questionLabelText: "Question:\n\"" + self.data.questionText + "\"")
-            viewController.setupThemeTitle(categoryTitleText: "Cathegory: " + self.data.categoryText)
-            viewController.setupTextfield(textfieldPlaceholder: "Write answer here")
-            viewController.setupAnswerButton(answerButtonText: "Answer")
-            viewController.setupCorrectAnswerLabel(correctAnswerLabelText: self.data.ansverText)
-        }
+            let index = Int.random(in: 0..<self.dataMas.count)
+            self.curData = self.dataMas[index]
+            DispatchQueue.main.async{
+                viewController.addSubviews()
+                viewController.setupConstraints()
+                
+                viewController.setupCategoryTitle(categoryTitleText: "Cathegory: " + self.curData.categoryText)
+                viewController.setupQuestionLabel(questionLabelText: "Question:\n\"" + self.curData.questionText + "\"")
+                viewController.setupTextfield(textfieldPlaceholder: "Write answer here")
+                viewController.setupAnswerButton(answerButtonText: "Answer")
+                viewController.setupCorrectAnswerLabel(correctAnswerLabelText: self.curData.ansverText)
+                viewController.setuoNextQuestionButton(nextQuestionButtonText: "Next question")
+            }
         }
     }
     
+    //проверка ответа пользователя
     func checkAnswer(userAnswer usersAnswer: String?) -> UIColor {
-        if data.ansverText.lowercased() == usersAnswer?.lowercased() {
+        if curData.ansverText.lowercased() == usersAnswer?.lowercased() {
             return .green
         } else {
             return .red
         }
     }
+    
+    //переход к новому вопросу
+    func setNextQuestion(viewController: GameViewController) {
+        let index = Int.random(in: 0..<dataMas.count)
+        self.curData = self.dataMas[index]
+        
+        viewController.clearAnswerTextField()
+        viewController.setupQuestionLabel(questionLabelText: "Question:\n\"" + self.curData.questionText + "\"")
+        viewController.setupCategoryTitle(categoryTitleText: "Cathegory: " + self.curData.categoryText)
+        viewController.setupCorrectAnswerLabel(correctAnswerLabelText: self.curData.ansverText)
+    }
 }
 
 extension GamePresenter: GameInteractorOutput {
     func setGameForecast(forecast: [GameForecast]) {
-        let index = Int.random(in: 0..<100)
-        data.ansverText = forecast[index].answer
-        data.questionText = forecast[index].question
-        data.categoryText = forecast[index].category.title
+        for curForecast in forecast {
+            curData.ansverText = curForecast.answer
+            curData.questionText = curForecast.question
+            curData.categoryText = curForecast.category.title
+            dataMas.append(curData)
+        }
     }
-    
 }
 

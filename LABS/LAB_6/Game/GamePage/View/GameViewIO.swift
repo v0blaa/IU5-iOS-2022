@@ -14,5 +14,6 @@ protocol GameViewInput: AnyObject {
 
 protocol GameViewOutput: AnyObject {
     func setGameData(viewController: GameViewController)
+    func setNextQuestion(viewController: GameViewController)
     func checkAnswer(userAnswer: String?) -> UIColor
 }
