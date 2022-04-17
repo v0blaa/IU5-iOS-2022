@@ -8,6 +8,7 @@
 import Foundation
 
 struct GameForecast: Decodable {
+    
     let answer: String
     let question: String
     let category: GameCategory
@@ -24,5 +25,13 @@ struct GameForecast: Decodable {
         answer = try values.decode(String.self, forKey: .answer)
         question = try values.decode(String.self, forKey: .question)
         category = try values.decode(GameCategory.self, forKey: .category)
+    }
+    
+    internal init(answer: String,
+                  question: String,
+                  category: GameCategory) {
+        self.answer = answer
+        self.question = question
+        self.category = category
     }
 }

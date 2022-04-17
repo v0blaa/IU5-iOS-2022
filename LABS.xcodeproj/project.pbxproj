@@ -27,6 +27,7 @@
 		7844CBAE27CA72DB00B4A094 /* ConcurrentPerformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844CBAD27CA72DB00B4A094 /* ConcurrentPerformTests.swift */; };
 		7844CBB027CADA8000B4A094 /* Shipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844CBAF27CADA7F00B4A094 /* Shipment.swift */; };
 		7844CBB227CADCD000B4A094 /* ShipmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844CBB127CADCD000B4A094 /* ShipmentTests.swift */; };
+		EE00776C2808814B00287201 /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE00776A2808814B00287201 /* Game.xcdatamodeld */; };
 		EE0F15AF2800E65C00DB0D8B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F15AE2800E65C00DB0D8B /* NetworkService.swift */; };
 		EE0F15B32800E69900DB0D8B /* NetworkRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F15B22800E69900DB0D8B /* NetworkRequestFactory.swift */; };
 		EE2F6A0827F105AE007F8120 /* HeaderFooterForBiologyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F6A0727F105AE007F8120 /* HeaderFooterForBiologyTable.swift */; };
@@ -78,6 +79,8 @@
 		EE9DBB7727FB819600F6C079 /* ViperControllersIntersctorIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB7627FB819600F6C079 /* ViperControllersIntersctorIO.swift */; };
 		EE9DBB7927FB826A00F6C079 /* ViperControllersPresenterIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB7827FB826A00F6C079 /* ViperControllersPresenterIO.swift */; };
 		EE9DBB7C27FCC96600F6C079 /* ViperControllersEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB7B27FCC96600F6C079 /* ViperControllersEntity.swift */; };
+		EEDF828D280C791900BB7275 /* GameForecastModel+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDF828C280C791900BB7275 /* GameForecastModel+Converter.swift */; };
+		EEDF828F280C796700BB7275 /* GameCategoryModel+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDF828E280C796700BB7275 /* GameCategoryModel+Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +117,7 @@
 		7844CBAD27CA72DB00B4A094 /* ConcurrentPerformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentPerformTests.swift; sourceTree = "<group>"; };
 		7844CBAF27CADA7F00B4A094 /* Shipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shipment.swift; sourceTree = "<group>"; };
 		7844CBB127CADCD000B4A094 /* ShipmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentTests.swift; sourceTree = "<group>"; };
+		EE00776B2808814B00287201 /* GameDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameDataModel.xcdatamodel; sourceTree = "<group>"; };
 		EE0F15AE2800E65C00DB0D8B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		EE0F15B22800E69900DB0D8B /* NetworkRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestFactory.swift; sourceTree = "<group>"; };
 		EE2F6A0727F105AE007F8120 /* HeaderFooterForBiologyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFooterForBiologyTable.swift; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 		EE9DBB7627FB819600F6C079 /* ViperControllersIntersctorIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersIntersctorIO.swift; sourceTree = "<group>"; };
 		EE9DBB7827FB826A00F6C079 /* ViperControllersPresenterIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersPresenterIO.swift; sourceTree = "<group>"; };
 		EE9DBB7B27FCC96600F6C079 /* ViperControllersEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersEntity.swift; sourceTree = "<group>"; };
+		EEDF828C280C791900BB7275 /* GameForecastModel+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameForecastModel+Converter.swift"; sourceTree = "<group>"; };
+		EEDF828E280C796700BB7275 /* GameCategoryModel+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameCategoryModel+Converter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,12 +311,30 @@
 			path = LAB_2;
 			sourceTree = "<group>";
 		};
+		EE007768280880FC00287201 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EEDF828B280C78F300BB7275 /* Converters */,
+				EE00776A2808814B00287201 /* Game.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EE0077692808810900287201 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EE0F15AC2800E62500DB0D8B /* Models */,
+				EE0F15AD2800E63500DB0D8B /* Services */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		EE0F15AB2800E60700DB0D8B /* LAB_6 */ = {
 			isa = PBXGroup;
 			children = (
+				EE0077692808810900287201 /* Network */,
+				EE007768280880FC00287201 /* CoreData */,
 				EE9BF0E52801D28F004C8AB5 /* Game */,
-				EE0F15AC2800E62500DB0D8B /* Models */,
-				EE0F15AD2800E63500DB0D8B /* Services */,
 			);
 			path = LAB_6;
 			sourceTree = "<group>";
@@ -617,6 +641,15 @@
 			path = ControllersEntity;
 			sourceTree = "<group>";
 		};
+		EEDF828B280C78F300BB7275 /* Converters */ = {
+			isa = PBXGroup;
+			children = (
+				EEDF828C280C791900BB7275 /* GameForecastModel+Converter.swift */,
+				EEDF828E280C796700BB7275 /* GameCategoryModel+Converter.swift */,
+			);
+			path = Converters;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -732,6 +765,7 @@
 				EE9DBB6A27FA3F2D00F6C079 /* ViperControllersViewIO.swift in Sources */,
 				EE5D505927E7C2E300C46370 /* AppDelegate.swift in Sources */,
 				EE5D505527E7C2E300C46370 /* FirstCell.swift in Sources */,
+				EE00776C2808814B00287201 /* Game.xcdatamodeld in Sources */,
 				EE9DBB4E27F9804800F6C079 /* MVPMenuPresenter.swift in Sources */,
 				EE9DBB4227F97C5000F6C079 /* MVPBiologyTableModuleIO.swift in Sources */,
 				EE0F15B32800E69900DB0D8B /* NetworkRequestFactory.swift in Sources */,
@@ -761,6 +795,7 @@
 				EE9DBB7C27FCC96600F6C079 /* ViperControllersEntity.swift in Sources */,
 				EE5D505C27E7C2E300C46370 /* ThirdViewController.swift in Sources */,
 				EE5D506427E8C88400C46370 /* InitialCell.swift in Sources */,
+				EEDF828D280C791900BB7275 /* GameForecastModel+Converter.swift in Sources */,
 				15350EA627C23C01000CDAC3 /* ArrayToString.swift in Sources */,
 				EE9DBB3E27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift in Sources */,
 				EE9BF0DE2801D25A004C8AB5 /* GamePresenter.swift in Sources */,
@@ -773,6 +808,7 @@
 				EE9DBB6627FA3F0900F6C079 /* ViperControllersPresenter.swift in Sources */,
 				EE5D506027E7C7C100C46370 /* InitialViewController.swift in Sources */,
 				EE5D506E27EB568400C46370 /* BiologyCellViewController.swift in Sources */,
+				EEDF828F280C796700BB7275 /* GameCategoryModel+Converter.swift in Sources */,
 				EE9BF0DA2801D238004C8AB5 /* GameInteractorIO.swift in Sources */,
 				EE9BF0DC2801D23E004C8AB5 /* GameInteractor.swift in Sources */,
 				EE5D506C27EB47AE00C46370 /* BiologyTableViewController.swift in Sources */,
@@ -1048,6 +1084,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EE00776A2808814B00287201 /* Game.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EE00776B2808814B00287201 /* GameDataModel.xcdatamodel */,
+			);
+			currentVersion = EE00776B2808814B00287201 /* GameDataModel.xcdatamodel */;
+			path = Game.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 78052E8127BA89A500BB3916 /* Project object */;
 }

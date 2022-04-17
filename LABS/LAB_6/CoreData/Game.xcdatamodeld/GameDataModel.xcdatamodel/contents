@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GameCategoryModel" representedClassName="GameCategoryModel" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="forecast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameForecastModel" inverseName="category" inverseEntity="GameForecastModel"/>
+    </entity>
+    <entity name="GameForecastModel" representedClassName="GameForecastModel" syncable="YES" codeGenerationType="class">
+        <attribute name="answer" optional="YES" attributeType="String"/>
+        <attribute name="question" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameCategoryModel" inverseName="forecast" inverseEntity="GameCategoryModel"/>
+    </entity>
+    <elements>
+        <element name="GameCategoryModel" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="GameForecastModel" positionX="-63" positionY="-18" width="128" height="74"/>
+    </elements>
+</model>
