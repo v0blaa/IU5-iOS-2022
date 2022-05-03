@@ -14,37 +14,49 @@ final class GamePresenter {
     private var interactor: GameInteractorInput!
     private var router: GameRouterInput?
     weak var view: GameViewInput!
-    private var dataMas: [GameData]
-    private var curData: GameData
+    private var curGameData: GameData?
+    private var category: Int
+    
+    private var dataMas: [GameDisplayData]
+    private var curData: GameDisplayData
     
     
     init(view: GameViewInput,
          interactor: GameInteractorInput,
-         router: GameRouterInput) {
+         router: GameRouterInput,
+         category: Int) {
         self.view = view
         self.interactor = interactor
         self.router = router
-        self.curData = GameData(categoryText: "", questionText: "", ansverText: "")
+        self.category = category
+        
+        
+        self.curData = GameDisplayData(categoryText: "", questionText: "", ansverText: "")
         self.dataMas = []
     }
 }
 extension GamePresenter: GameViewOutput {
     func setGameData(viewController: GameViewController) {
-        interactor.getGameForecast(){
-            let index = Int.random(in: 0..<self.dataMas.count)
-            self.curData = self.dataMas[index]
-            DispatchQueue.main.async{
-                viewController.addSubviews()
-                viewController.setupConstraints()
-                
-                viewController.setupCategoryTitle(categoryTitleText: "Cathegory: " + self.curData.categoryText)
-                viewController.setupQuestionLabel(questionLabelText: "Question:\n\"" + self.curData.questionText + "\"")
-                viewController.setupTextfield(textfieldPlaceholder: "Write answer here")
-                viewController.setupAnswerButton(answerButtonText: "Answer")
-                viewController.setupCorrectAnswerLabel(correctAnswerLabelText: self.curData.ansverText)
-                viewController.setuoNextQuestionButton(nextQuestionButtonText: "Next question")
-            }
-        }
+        interactor.loadData(forCategoryIndex: category)
+        
+        
+        //с этим позже раберусь
+        
+//    (){
+//            let index = Int.random(in: 0..<self.dataMas.count)
+//            self.curData = self.dataMas[index]
+//            DispatchQueue.main.async{
+//                viewController.addSubviews()
+//                viewController.setupConstraints()
+//
+//                viewController.setupCategoryTitle(categoryTitleText: "Cathegory: " + self.curData.categoryText)
+//                viewController.setupQuestionLabel(questionLabelText: "Question:\n\"" + self.curData.questionText + "\"")
+//                viewController.setupTextfield(textfieldPlaceholder: "Write answer here")
+//                viewController.setupAnswerButton(answerButtonText: "Answer")
+//                viewController.setupCorrectAnswerLabel(correctAnswerLabelText: self.curData.ansverText)
+//                viewController.setuoNextQuestionButton(nextQuestionButtonText: "Next question")
+//            }
+//        }
     }
     
     //проверка ответа пользователя
@@ -57,25 +69,32 @@ extension GamePresenter: GameViewOutput {
     }
     
     //переход к новому вопросу
-    func setNextQuestion(viewController: GameViewController) {
+    func reloadData(viewController: GameViewController) {
         let index = Int.random(in: 0..<dataMas.count)
         self.curData = self.dataMas[index]
         
         viewController.clearAnswerTextField()
         viewController.setupQuestionLabel(questionLabelText: "Question:\n\"" + self.curData.questionText + "\"")
-        viewController.setupCategoryTitle(categoryTitleText: "Cathegory: " + self.curData.categoryText)
         viewController.setupCorrectAnswerLabel(correctAnswerLabelText: self.curData.ansverText)
     }
 }
 
 extension GamePresenter: GameInteractorOutput {
-    func setGameForecast(forecast: [GameForecast]) {
-        for curForecast in forecast {
+    func setGameData(gameData: [GameData]) {
+        for curForecast in gameData {
             curData.ansverText = curForecast.answer
             curData.questionText = curForecast.question
             curData.categoryText = curForecast.category.title
             dataMas.append(curData)
         }
+    }
+    func didFetchGameData(_ gameData: GameData) {
+        curGameData = gameData
+        view.reloadData()
+    }
+    
+    func didReceiveError(_ error: Error) {
+        view?.showAlert(title: "Ошибка", message: "Произошла ошибка при получении данных")
     }
 }
 

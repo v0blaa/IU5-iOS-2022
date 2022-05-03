@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct GameForecast: Decodable {
-    
+struct GameData: Decodable {
     let answer: String
     let question: String
     let category: GameCategory

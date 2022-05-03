@@ -57,7 +57,6 @@ final class MenuTableViewController: UIViewController {
                                                                    width: tableViewController.frame.width,
                                                                    height: CGFloat.leastNormalMagnitude))
         registerCell()
-//        registerHeader()
     }
     
     private func registerCell() {

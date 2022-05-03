@@ -195,7 +195,7 @@ final class GameViewController: UIViewController {
         answerTextField.backgroundColor = output.checkAnswer(userAnswer: answerTextField.text)
     }
     @objc func nextQuestionButtonClicked() {
-        output.setNextQuestion(viewController: self)
+        output.reloadData(viewController: self)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         answerTextField.backgroundColor = output.checkAnswer(userAnswer: answerTextField.text)
@@ -214,5 +214,14 @@ extension GameViewController: UITextFieldDelegate {
 }
 
 extension GameViewController: GameViewInput {
-    
+    func reloadData() {
+        output.reloadData(viewController: self)
+    }
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }

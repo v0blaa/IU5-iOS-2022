@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 
 protocol GameViewInput: AnyObject {
-    
+    func reloadData()
+    func showAlert(title: String, message: String)
 }
 
 protocol GameViewOutput: AnyObject {
     func setGameData(viewController: GameViewController)
-    func setNextQuestion(viewController: GameViewController)
+    func reloadData(viewController: GameViewController)
     func checkAnswer(userAnswer: String?) -> UIColor
 }

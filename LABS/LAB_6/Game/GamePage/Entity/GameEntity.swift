@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct GameData {
+struct GameDisplayData {
     var categoryText: String
     var questionText: String
     var ansverText: String

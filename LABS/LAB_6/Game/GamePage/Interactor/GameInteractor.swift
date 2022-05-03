@@ -10,34 +10,71 @@ import UIKit
 
 final class GameInteractor {
     weak var output: GameInteractorOutput!
-    private let networkService: NetworkServiceProtocol!
-    private var requestFactory: NetworkRequestFactoryProtocol!
+    private let networkService: NetworkServiceProtocol
+    private var requestFactory: NetworkRequestFactoryProtocol
+    private var storage: StorageProtocol
     
-    init(selectedCategory: Int) {
-        self.requestFactory = NetworkRequestFactory(category: selectedCategory)
-        self.networkService = NetworkService(session: URLSession(configuration: .default))
+    //lifecycle
+    init(requestFactory: NetworkRequestFactory, networkService: NetworkService, storage: StorageProtocol) {
+        self.requestFactory = requestFactory
+        self.networkService = networkService
+        self.storage = storage
     }
-}
-
-extension GameInteractor: GameInteractorInput {
     
-    func getGameForecast(completion: @escaping () -> Void) {
+    //private
+    private func saveGameData(_ gameData: [GameData]) {
+        storage.save(gameData: gameData) { result in
+            switch result {
+            case .failure(let error):
+                print("Не удалось сохранить данные \(error)")
+                
+            case .success:
+                break
+            }
+        }
+    }
+
+    func obtainGameDataFromCache(categoryIndex: Int?, completion: @escaping (Result<GameData, Error>) -> Void) {
+        storage.obtainGameData(withCategoryIndex: categoryIndex ?? 0 , completion: completion)
+    }
+    
+    func obtainGameDataFromServer() {
         let request = requestFactory.getRequestForCurrentCategory()
-        networkService.sendRequest(request) { result in
+        networkService.sendRequest(request) { [weak self] result in
+            guard let strongSelf = self else { return }
             switch result {
             case .failure(let error):
                 print("Error \(error)")
             case .success(let data):
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
-                    let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let forecast = try decoder.decode([GameForecast].self, from: data)
-                    self.output.setGameForecast(forecast: forecast)
-                    completion()
+                    let gameData = try decoder.decode([GameData].self, from: data)
+                    print("Data donwloaded")
+                    strongSelf.saveGameData(gameData)
+                    strongSelf.output.setGameData(gameData: gameData)
                 } catch {
-                    assertionFailure("\(error)")
+                    assertionFailure("Error: \(error)")
+                    strongSelf.output.didReceiveError(error)
                 }
             }
         }
     }
 }
+
+extension GameInteractor: GameInteractorInput {
+    func loadData(forCategoryIndex categoryIndex: Int) {
+        obtainGameDataFromCache(categoryIndex: categoryIndex) { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let gameData):
+                strongSelf.output.didFetchGameData(gameData)
+                
+            case .failure(let error):
+                strongSelf.output.didReceiveError(error)
+            }
+            strongSelf.obtainGameDataFromServer()
+        }
+    }
+}
+
