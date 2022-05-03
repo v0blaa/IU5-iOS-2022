@@ -8,8 +8,8 @@
 import Foundation
 
 struct GameCategory: Decodable {
-    let categoryId: Int
-    let title: String
+    var categoryId: Int
+    var title: String
     
     enum CodingKeys: String, CodingKey {
         case categoryId = "id"

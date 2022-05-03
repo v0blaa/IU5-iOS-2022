@@ -204,7 +204,6 @@ final class GameViewController: UIViewController {
     
     //очистка textfield для нового вопроса
     func clearAnswerTextField() {
-        print("clear")
         answerTextField.text = ""
         answerTextField.backgroundColor = .systemBackground
     }
@@ -214,9 +213,6 @@ extension GameViewController: UITextFieldDelegate {
 }
 
 extension GameViewController: GameViewInput {
-    func reloadData() {
-        output.reloadData(viewController: self)
-    }
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

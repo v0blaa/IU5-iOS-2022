@@ -13,7 +13,7 @@ enum StorageError: Error {
 
 protocol StorageProtocol {
     func save(gameData: [GameData], completion: @escaping (Result<GameData, Error>) -> Void)
-    func obtainGameData(withCategoryIndex categoryIndex: Int, completion: @escaping (Result<GameData, Error>) -> Void)
+    func obtainGameData(withCategoryIndex categoryIndex: Int, completion: @escaping (Result<[GameData], Error>) -> Void)
 }
 
 final class Storage: StorageProtocol {
@@ -48,7 +48,7 @@ final class Storage: StorageProtocol {
         }
     }
     
-    func obtainGameData(withCategoryIndex categoryIndex: Int, completion: @escaping (Result<GameData, Error>) -> Void) {
+    func obtainGameData(withCategoryIndex categoryIndex: Int, completion: @escaping (Result<[GameData], Error>) -> Void) {
         let context = coreDataManager.readContext
         context.perform { [weak self] in
             guard let strongSelf = self else { return }
@@ -59,12 +59,16 @@ final class Storage: StorageProtocol {
                     completion(.failure(StorageError.noData))
                     return
                 }
-                let dtoModel = gameData.convertToDTO()
-                completion(.success(dtoModel))
+                var dataMas: [GameData] = []
+                for i in fetchRequestResults {
+                    let dtoModel = i.convertToDTO()
+                    dataMas.append(dtoModel)
+                }
+                completion(.success(dataMas))
             } catch {
                 assertionFailure("Failed to obtain game data: \(error)")
                 completion(.failure(error))
-            }
+            } 
         }
     }
 }

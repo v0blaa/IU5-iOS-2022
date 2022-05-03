@@ -34,9 +34,9 @@ final class GameInteractor {
         }
     }
 
-    func obtainGameDataFromCache(categoryIndex: Int?, completion: @escaping (Result<GameData, Error>) -> Void) {
+    func obtainGameDataFromCache(categoryIndex: Int?, completion: @escaping (Result<[GameData], Error>) -> Void) {
         storage.obtainGameData(withCategoryIndex: categoryIndex ?? 0 , completion: completion)
-    }
+    } 
     
     func obtainGameDataFromServer() {
         let request = requestFactory.getRequestForCurrentCategory()
@@ -50,7 +50,6 @@ final class GameInteractor {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
                     let gameData = try decoder.decode([GameData].self, from: data)
-                    print("Data donwloaded")
                     strongSelf.saveGameData(gameData)
                     strongSelf.output.setGameData(gameData: gameData)
                 } catch {
@@ -63,12 +62,13 @@ final class GameInteractor {
 }
 
 extension GameInteractor: GameInteractorInput {
-    func loadData(forCategoryIndex categoryIndex: Int) {
+    func loadData(forCategoryIndex categoryIndex: Int,  compl: @escaping () -> Void) {
         obtainGameDataFromCache(categoryIndex: categoryIndex) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case .success(let gameData):
                 strongSelf.output.didFetchGameData(gameData)
+                compl()
                 
             case .failure(let error):
                 strongSelf.output.didReceiveError(error)

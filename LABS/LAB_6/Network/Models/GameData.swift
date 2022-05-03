@@ -8,9 +8,9 @@
 import Foundation
 
 struct GameData: Decodable {
-    let answer: String
-    let question: String
-    let category: GameCategory
+    var answer: String
+    var question: String
+    var category: GameCategory
     
     enum CodingKeys: String, CodingKey {
         case answer

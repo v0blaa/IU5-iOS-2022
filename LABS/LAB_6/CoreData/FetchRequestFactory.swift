@@ -30,7 +30,7 @@ final class FetchRequestFactory: FetchRequestFactoryProtocol {
     func gameDataRequest(categoryIndex: Int) -> NSFetchRequest<GameDataModel> {
         let request = GameDataModel.fetchRequest()
         
-        let gamePredicate = NSPredicate(format: "%K == %@",  #keyPath(GameDataModel.category.categoryId), Int32(categoryIndex))
+        let gamePredicate = NSPredicate(format: "%K == %d",  #keyPath(GameDataModel.category.categoryId), Int32(categoryIndex))
         request.predicate = gamePredicate
         
         return request

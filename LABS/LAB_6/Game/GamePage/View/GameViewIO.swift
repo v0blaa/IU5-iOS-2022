@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol GameViewInput: AnyObject {
-    func reloadData()
     func showAlert(title: String, message: String)
 }
 

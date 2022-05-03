@@ -8,12 +8,12 @@
 import Foundation
 
 protocol GameInteractorInput: AnyObject {
-    func loadData(forCategoryIndex categoryIndex: Int)
-    func obtainGameDataFromCache(categoryIndex: Int?, completion: @escaping (Result<GameData, Error>) -> Void)
+    func loadData(forCategoryIndex categoryIndex: Int,  compl: @escaping () -> Void)
+    func obtainGameDataFromCache(categoryIndex: Int?, completion: @escaping (Result<[GameData], Error>) -> Void)
 }
 
 protocol GameInteractorOutput: AnyObject {
     func setGameData(gameData: [GameData])
-    func didFetchGameData(_ gameData: GameData)
+    func didFetchGameData(_ gameData: [GameData])
     func didReceiveError(_ error: Error)
 }
