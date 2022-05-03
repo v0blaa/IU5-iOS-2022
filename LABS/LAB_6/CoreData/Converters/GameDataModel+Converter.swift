@@ -9,17 +9,13 @@ import Foundation
 import CoreData
 
 extension GameDataModel {
-    static func convert(dto: [GameData], into context: NSManagedObjectContext) -> [GameDataModel] {
+    static func convert(dto: GameData, into context: NSManagedObjectContext) -> GameDataModel {
         let model = GameDataModel(context: context)
-        var modelMas = [GameDataModel(context: context)]
-        for curDto in dto {
-            model.answer = curDto.answer
-            model.question = curDto.question
-            model.category = GameCategoryModel.convert(dto: curDto.category, into: context)
-            modelMas.append(model)
-        }
+        model.answer = dto.answer
+        model.question = dto.question
+        model.category = GameCategoryModel.convert(dto: dto.category, into: context)
+        return model
         
-        return modelMas
     }
     
     func convertToDTO() -> GameData {

@@ -12,7 +12,7 @@ enum StorageError: Error {
 }
 
 protocol StorageProtocol {
-    func save(gameData: [GameData], completion: @escaping (Result<[GameData], Error>) -> Void)
+    func save(gameData: [GameData], completion: @escaping (Result<GameData, Error>) -> Void)
     func obtainGameData(withCategoryIndex categoryIndex: Int, completion: @escaping (Result<GameData, Error>) -> Void)
 }
 
@@ -30,17 +30,20 @@ final class Storage: StorageProtocol {
         self.storageRequestFactory = storageRequestFactory
     }
     
-    func save(gameData: [GameData], completion: @escaping (Result<[GameData], Error>) -> Void) {
-        let context = coreDataManager.writeContext
-        context.perform {
-            _ = GameDataModel.convert(dto: gameData, into: context)
-            do {
-                try context.save()
-                completion(.success(gameData))
-            } catch {
-                assertionFailure("Error when saving context \(error)")
-                context.rollback()
-                completion(.failure(error))
+    func save(gameData: [GameData], completion: @escaping (Result<GameData, Error>) -> Void) {
+
+         for curGameData in gameData {
+            let context = coreDataManager.writeContext
+            context.perform {
+                _ = GameDataModel.convert(dto: curGameData, into: context)
+                do {
+                    try context.save()
+                    completion(.success(curGameData))
+                } catch {
+                    assertionFailure("Error when saving context \(error)")
+                    context.rollback()
+                    completion(.failure(error))
+                }
             }
         }
     }
