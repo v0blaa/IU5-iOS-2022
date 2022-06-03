@@ -39,9 +39,29 @@
 		EE5D506027E7C7C100C46370 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D505F27E7C7C100C46370 /* InitialViewController.swift */; };
 		EE5D506427E8C88400C46370 /* InitialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506327E8C88400C46370 /* InitialCell.swift */; };
 		EE5D506727EB37B000C46370 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506627EB37B000C46370 /* MenuViewController.swift */; };
-		EE5D506C27EB47AE00C46370 /* BiologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506B27EB47AE00C46370 /* BiologyViewController.swift */; };
-		EE5D506E27EB568400C46370 /* BiologyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506D27EB568400C46370 /* BiologyTableCell.swift */; };
+		EE5D506C27EB47AE00C46370 /* BiologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506B27EB47AE00C46370 /* BiologyTableViewController.swift */; };
+		EE5D506E27EB568400C46370 /* BiologyCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D506D27EB568400C46370 /* BiologyCellViewController.swift */; };
 		EE5D507327ED019D00C46370 /* ControllersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D507227ED019D00C46370 /* ControllersViewController.swift */; };
+		EE9DBB3C27F97BCB00F6C079 /* MVPBiologyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB3B27F97BCB00F6C079 /* MVPBiologyTableViewController.swift */; };
+		EE9DBB3E27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB3D27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift */; };
+		EE9DBB4027F97C3D00F6C079 /* MVPBiologyTableViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB3F27F97C3D00F6C079 /* MVPBiologyTableViewIO.swift */; };
+		EE9DBB4227F97C5000F6C079 /* MVPBiologyTableModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB4127F97C5000F6C079 /* MVPBiologyTableModuleIO.swift */; };
+		EE9DBB4427F97C6800F6C079 /* MVPBiologyTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB4327F97C6800F6C079 /* MVPBiologyTablePresenter.swift */; };
+		EE9DBB4A27F9801F00F6C079 /* MVPMenuModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB4927F9801F00F6C079 /* MVPMenuModuleBuilder.swift */; };
+		EE9DBB4C27F9802F00F6C079 /* MVPMenuModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB4B27F9802F00F6C079 /* MVPMenuModuleIO.swift */; };
+		EE9DBB4E27F9804800F6C079 /* MVPMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB4D27F9804800F6C079 /* MVPMenuPresenter.swift */; };
+		EE9DBB5027F9806B00F6C079 /* MVPMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB4F27F9806B00F6C079 /* MVPMenuViewController.swift */; };
+		EE9DBB5227F9807700F6C079 /* MVPMenuViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB5127F9807700F6C079 /* MVPMenuViewIO.swift */; };
+		EE9DBB5B27FA10F200F6C079 /* MVPBiologyCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB5A27FA10F200F6C079 /* MVPBiologyCellViewController.swift */; };
+		EE9DBB6627FA3F0900F6C079 /* ViperControllersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB6527FA3F0900F6C079 /* ViperControllersPresenter.swift */; };
+		EE9DBB6827FA3F1F00F6C079 /* ViperControllersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB6727FA3F1F00F6C079 /* ViperControllersViewController.swift */; };
+		EE9DBB6A27FA3F2D00F6C079 /* ViperControllersViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB6927FA3F2D00F6C079 /* ViperControllersViewIO.swift */; };
+		EE9DBB6F27FB701600F6C079 /* ViperControllersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB6E27FB701600F6C079 /* ViperControllersInteractor.swift */; };
+		EE9DBB7227FB7B5100F6C079 /* ViperControllersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB7127FB7B5100F6C079 /* ViperControllersRouter.swift */; };
+		EE9DBB7527FB7E5200F6C079 /* ViperControllerModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB7427FB7E5200F6C079 /* ViperControllerModuleBuilder.swift */; };
+		EE9DBB7727FB819600F6C079 /* ViperControllersIntersctorIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB7627FB819600F6C079 /* ViperControllersIntersctorIO.swift */; };
+		EE9DBB7927FB826A00F6C079 /* ViperControllersPresenterIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB7827FB826A00F6C079 /* ViperControllersPresenterIO.swift */; };
+		EE9DBB7C27FCC96600F6C079 /* ViperControllersEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DBB7B27FCC96600F6C079 /* ViperControllersEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,9 +110,29 @@
 		EE5D505F27E7C7C100C46370 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		EE5D506327E8C88400C46370 /* InitialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCell.swift; sourceTree = "<group>"; };
 		EE5D506627EB37B000C46370 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		EE5D506B27EB47AE00C46370 /* BiologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiologyViewController.swift; sourceTree = "<group>"; };
-		EE5D506D27EB568400C46370 /* BiologyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiologyTableCell.swift; sourceTree = "<group>"; };
+		EE5D506B27EB47AE00C46370 /* BiologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiologyTableViewController.swift; sourceTree = "<group>"; };
+		EE5D506D27EB568400C46370 /* BiologyCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiologyCellViewController.swift; sourceTree = "<group>"; };
 		EE5D507227ED019D00C46370 /* ControllersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersViewController.swift; sourceTree = "<group>"; };
+		EE9DBB3B27F97BCB00F6C079 /* MVPBiologyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPBiologyTableViewController.swift; sourceTree = "<group>"; };
+		EE9DBB3D27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPBiologyTableModuleBuilder.swift; sourceTree = "<group>"; };
+		EE9DBB3F27F97C3D00F6C079 /* MVPBiologyTableViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPBiologyTableViewIO.swift; sourceTree = "<group>"; };
+		EE9DBB4127F97C5000F6C079 /* MVPBiologyTableModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPBiologyTableModuleIO.swift; sourceTree = "<group>"; };
+		EE9DBB4327F97C6800F6C079 /* MVPBiologyTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPBiologyTablePresenter.swift; sourceTree = "<group>"; };
+		EE9DBB4927F9801F00F6C079 /* MVPMenuModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPMenuModuleBuilder.swift; sourceTree = "<group>"; };
+		EE9DBB4B27F9802F00F6C079 /* MVPMenuModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPMenuModuleIO.swift; sourceTree = "<group>"; };
+		EE9DBB4D27F9804800F6C079 /* MVPMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPMenuPresenter.swift; sourceTree = "<group>"; };
+		EE9DBB4F27F9806B00F6C079 /* MVPMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPMenuViewController.swift; sourceTree = "<group>"; };
+		EE9DBB5127F9807700F6C079 /* MVPMenuViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPMenuViewIO.swift; sourceTree = "<group>"; };
+		EE9DBB5A27FA10F200F6C079 /* MVPBiologyCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPBiologyCellViewController.swift; sourceTree = "<group>"; };
+		EE9DBB6527FA3F0900F6C079 /* ViperControllersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersPresenter.swift; sourceTree = "<group>"; };
+		EE9DBB6727FA3F1F00F6C079 /* ViperControllersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersViewController.swift; sourceTree = "<group>"; };
+		EE9DBB6927FA3F2D00F6C079 /* ViperControllersViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersViewIO.swift; sourceTree = "<group>"; };
+		EE9DBB6E27FB701600F6C079 /* ViperControllersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersInteractor.swift; sourceTree = "<group>"; };
+		EE9DBB7127FB7B5100F6C079 /* ViperControllersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersRouter.swift; sourceTree = "<group>"; };
+		EE9DBB7427FB7E5200F6C079 /* ViperControllerModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllerModuleBuilder.swift; sourceTree = "<group>"; };
+		EE9DBB7627FB819600F6C079 /* ViperControllersIntersctorIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersIntersctorIO.swift; sourceTree = "<group>"; };
+		EE9DBB7827FB826A00F6C079 /* ViperControllersPresenterIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersPresenterIO.swift; sourceTree = "<group>"; };
+		EE9DBB7B27FCC96600F6C079 /* ViperControllersEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperControllersEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +181,7 @@
 		78052E8B27BA89A500BB3916 /* LABS */ = {
 			isa = PBXGroup;
 			children = (
+				EE9DBB2F27F978A400F6C079 /* LAB_5 */,
 				EE5D505D27E7C72000C46370 /* LAB_4 */,
 				7801412927D642C900E22965 /* LAB_3 */,
 				7844CBA127C91DCA00B4A094 /* LAB_2 */,
@@ -287,8 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				EE2F6A0727F105AE007F8120 /* HeaderFooterForBiologyTable.swift */,
-				EE5D506B27EB47AE00C46370 /* BiologyViewController.swift */,
-				EE5D506D27EB568400C46370 /* BiologyTableCell.swift */,
+				EE5D506B27EB47AE00C46370 /* BiologyTableViewController.swift */,
+				EE5D506D27EB568400C46370 /* BiologyCellViewController.swift */,
 			);
 			path = ThirdViewController;
 			sourceTree = "<group>";
@@ -299,6 +340,145 @@
 				EE5D507227ED019D00C46370 /* ControllersViewController.swift */,
 			);
 			path = FourthViewController;
+			sourceTree = "<group>";
+		};
+		EE9DBB2F27F978A400F6C079 /* LAB_5 */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB3227F9794600F6C079 /* MVP */,
+				EE9DBB3327F9794D00F6C079 /* Viper */,
+			);
+			path = LAB_5;
+			sourceTree = "<group>";
+		};
+		EE9DBB3227F9794600F6C079 /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB4627F97FD900F6C079 /* MenuViewController */,
+				EE9DBB4827F97FF300F6C079 /* BiologyTableViewController */,
+			);
+			path = MVP;
+			sourceTree = "<group>";
+		};
+		EE9DBB3327F9794D00F6C079 /* Viper */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB6027FA2D8400F6C079 /* ControllersViewController */,
+			);
+			path = Viper;
+			sourceTree = "<group>";
+		};
+		EE9DBB3427F9796000F6C079 /* BiologyTablePresenter */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB4327F97C6800F6C079 /* MVPBiologyTablePresenter.swift */,
+				EE9DBB4127F97C5000F6C079 /* MVPBiologyTableModuleIO.swift */,
+			);
+			path = BiologyTablePresenter;
+			sourceTree = "<group>";
+		};
+		EE9DBB3527F9797000F6C079 /* BiologyTableView */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB5A27FA10F200F6C079 /* MVPBiologyCellViewController.swift */,
+				EE9DBB3B27F97BCB00F6C079 /* MVPBiologyTableViewController.swift */,
+				EE9DBB3F27F97C3D00F6C079 /* MVPBiologyTableViewIO.swift */,
+			);
+			path = BiologyTableView;
+			sourceTree = "<group>";
+		};
+		EE9DBB4527F97FCB00F6C079 /* MenuPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB4D27F9804800F6C079 /* MVPMenuPresenter.swift */,
+				EE9DBB4B27F9802F00F6C079 /* MVPMenuModuleIO.swift */,
+			);
+			path = MenuPresenter;
+			sourceTree = "<group>";
+		};
+		EE9DBB4627F97FD900F6C079 /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB4527F97FCB00F6C079 /* MenuPresenter */,
+				EE9DBB4727F97FE000F6C079 /* MenuView */,
+				EE9DBB4927F9801F00F6C079 /* MVPMenuModuleBuilder.swift */,
+			);
+			path = MenuViewController;
+			sourceTree = "<group>";
+		};
+		EE9DBB4727F97FE000F6C079 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB4F27F9806B00F6C079 /* MVPMenuViewController.swift */,
+				EE9DBB5127F9807700F6C079 /* MVPMenuViewIO.swift */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+		EE9DBB4827F97FF300F6C079 /* BiologyTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB3427F9796000F6C079 /* BiologyTablePresenter */,
+				EE9DBB3527F9797000F6C079 /* BiologyTableView */,
+				EE9DBB3D27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift */,
+			);
+			path = BiologyTableViewController;
+			sourceTree = "<group>";
+		};
+		EE9DBB6027FA2D8400F6C079 /* ControllersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB7A27FCC95000F6C079 /* ControllersEntity */,
+				EE9DBB7027FB7B3400F6C079 /* ControllersRouter */,
+				EE9DBB6D27FB6FF900F6C079 /* ControllersInteractor */,
+				EE9DBB6127FA2DE700F6C079 /* ControllersPresenter */,
+				EE9DBB6227FA2E1000F6C079 /* ControllersView */,
+				EE9DBB7427FB7E5200F6C079 /* ViperControllerModuleBuilder.swift */,
+			);
+			path = ControllersViewController;
+			sourceTree = "<group>";
+		};
+		EE9DBB6127FA2DE700F6C079 /* ControllersPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB7827FB826A00F6C079 /* ViperControllersPresenterIO.swift */,
+				EE9DBB6527FA3F0900F6C079 /* ViperControllersPresenter.swift */,
+			);
+			path = ControllersPresenter;
+			sourceTree = "<group>";
+		};
+		EE9DBB6227FA2E1000F6C079 /* ControllersView */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB6727FA3F1F00F6C079 /* ViperControllersViewController.swift */,
+				EE9DBB6927FA3F2D00F6C079 /* ViperControllersViewIO.swift */,
+			);
+			path = ControllersView;
+			sourceTree = "<group>";
+		};
+		EE9DBB6D27FB6FF900F6C079 /* ControllersInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB7627FB819600F6C079 /* ViperControllersIntersctorIO.swift */,
+				EE9DBB6E27FB701600F6C079 /* ViperControllersInteractor.swift */,
+			);
+			path = ControllersInteractor;
+			sourceTree = "<group>";
+		};
+		EE9DBB7027FB7B3400F6C079 /* ControllersRouter */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB7127FB7B5100F6C079 /* ViperControllersRouter.swift */,
+			);
+			path = ControllersRouter;
+			sourceTree = "<group>";
+		};
+		EE9DBB7A27FCC95000F6C079 /* ControllersEntity */ = {
+			isa = PBXGroup;
+			children = (
+				EE9DBB7B27FCC96600F6C079 /* ViperControllersEntity.swift */,
+			);
+			path = ControllersEntity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,28 +582,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9DBB4C27F9802F00F6C079 /* MVPMenuModuleIO.swift in Sources */,
 				7844CB9D27C2605D00B4A094 /* SwapValues.swift in Sources */,
 				EE5D505827E7C2E300C46370 /* TabelViewController.swift in Sources */,
 				EE2F6A0827F105AE007F8120 /* HeaderFooterForBiologyTable.swift in Sources */,
+				EE9DBB7527FB7E5200F6C079 /* ViperControllerModuleBuilder.swift in Sources */,
 				7844CBA327C91E3C00B4A094 /* ReferenceCycleResolver.swift in Sources */,
+				EE9DBB6A27FA3F2D00F6C079 /* ViperControllersViewIO.swift in Sources */,
 				EE5D505927E7C2E300C46370 /* AppDelegate.swift in Sources */,
 				EE5D505527E7C2E300C46370 /* FirstCell.swift in Sources */,
+				EE9DBB4E27F9804800F6C079 /* MVPMenuPresenter.swift in Sources */,
+				EE9DBB4227F97C5000F6C079 /* MVPBiologyTableModuleIO.swift in Sources */,
+				EE9DBB6827FA3F1F00F6C079 /* ViperControllersViewController.swift in Sources */,
+				EE9DBB7227FB7B5100F6C079 /* ViperControllersRouter.swift in Sources */,
+				EE9DBB5B27FA10F200F6C079 /* MVPBiologyCellViewController.swift in Sources */,
+				EE9DBB5227F9807700F6C079 /* MVPMenuViewIO.swift in Sources */,
 				7844CBB027CADA8000B4A094 /* Shipment.swift in Sources */,
 				EE5D507327ED019D00C46370 /* ControllersViewController.swift in Sources */,
 				7844CB9027C1A34200B4A094 /* NumberToArray.swift in Sources */,
 				78052EBF27BA8AC300BB3916 /* SequenceСreator.swift in Sources */,
+				EE9DBB7727FB819600F6C079 /* ViperControllersIntersctorIO.swift in Sources */,
 				7844CB9427C1A72600B4A094 /* BooleanConverter.swift in Sources */,
 				7844CB9227C1A5BE00B4A094 /* SquareSum.swift in Sources */,
 				EE5D505627E7C2E300C46370 /* ViewController.swift in Sources */,
+				EE9DBB5027F9806B00F6C079 /* MVPMenuViewController.swift in Sources */,
+				EE9DBB4A27F9801F00F6C079 /* MVPMenuModuleBuilder.swift in Sources */,
+				EE9DBB4427F97C6800F6C079 /* MVPBiologyTablePresenter.swift in Sources */,
+				EE9DBB7927FB826A00F6C079 /* ViperControllersPresenterIO.swift in Sources */,
 				7844CBAA27CA47B000B4A094 /* CaptureLists.swift in Sources */,
 				7844CBA827CA476900B4A094 /* ConcurrentPerform.swift in Sources */,
+				EE9DBB7C27FCC96600F6C079 /* ViperControllersEntity.swift in Sources */,
 				EE5D505C27E7C2E300C46370 /* ThirdViewController.swift in Sources */,
 				EE5D506427E8C88400C46370 /* InitialCell.swift in Sources */,
 				15350EA627C23C01000CDAC3 /* ArrayToString.swift in Sources */,
+				EE9DBB3E27F97BED00F6C079 /* MVPBiologyTableModuleBuilder.swift in Sources */,
+				EE9DBB3C27F97BCB00F6C079 /* MVPBiologyTableViewController.swift in Sources */,
+				EE9DBB6F27FB701600F6C079 /* ViperControllersInteractor.swift in Sources */,
 				EE5D506727EB37B000C46370 /* MenuViewController.swift in Sources */,
+				EE9DBB4027F97C3D00F6C079 /* MVPBiologyTableViewIO.swift in Sources */,
+				EE9DBB6627FA3F0900F6C079 /* ViperControllersPresenter.swift in Sources */,
 				EE5D506027E7C7C100C46370 /* InitialViewController.swift in Sources */,
-				EE5D506E27EB568400C46370 /* BiologyTableCell.swift in Sources */,
-				EE5D506C27EB47AE00C46370 /* BiologyViewController.swift in Sources */,
+				EE5D506E27EB568400C46370 /* BiologyCellViewController.swift in Sources */,
+				EE5D506C27EB47AE00C46370 /* BiologyTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

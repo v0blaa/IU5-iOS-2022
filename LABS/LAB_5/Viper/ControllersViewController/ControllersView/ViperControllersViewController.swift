@@ -1,14 +1,14 @@
 //
-//  ControllersViewController.swift
+//  CViperontrollersViewController.swift
 //  LABS
 //
-//  Created by Сергей Адольевич on 24.03.2022.
+//  Created by Сергей Адольевич on 03.04.2022.
 //
 
 import Foundation
 import UIKit
 
-final class ControllersViewController: UIViewController, UITextFieldDelegate {
+final class ViperControllersViewController: UIViewController, UITextFieldDelegate {
     
     //SWITCH
     private let lungsIconImage = UIImageView()
@@ -28,6 +28,8 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
     private let moodSegmentPickerLabel = UILabel()
     private let moodSegmentPicker = UISegmentedControl()
     private let moodIconImage = UIImageView()
+    
+    var output: ViperControllersViewOutput!
     
     //Общие константы для constraint
     private enum Constants {
@@ -67,14 +69,13 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        setupSwitchController()
-        setupSliderController()
-        setupTextFieldController()
-        setupSegmentPickerControl()
+        output.giveData(viewController: self)
     }
     
     //все для Switch
-    private func setupSwitchController() {
+    func setupSwitchController(lungsIconImageData: UIImage,
+                               lungsIconImageColorData: UIColor,
+                               smokingLabelData: String) {
         view.addSubview(lungsIconImage)
         view.addSubview(smokingLabel)
         view.addSubview(lungsSwitch)
@@ -88,8 +89,8 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
                                                 constant: Constants.DistanceBetweenViews.long),
             lungsIconImage.heightAnchor.constraint(equalToConstant: Constants.Image.height)
         ])
-        lungsIconImage.image = UIImage(systemName: "lungs")
-        lungsIconImage.tintColor = .systemPink
+        lungsIconImage.image = lungsIconImageData
+        lungsIconImage.tintColor = lungsIconImageColorData
         
         
         smokingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -100,7 +101,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
                                               constant: Constants.DistanceBetweenViews.short),
             smokingLabel.heightAnchor.constraint(equalToConstant: Constants.Label.height)
         ])
-        smokingLabel.text = "Smoking"
+        smokingLabel.text = smokingLabelData
         smokingLabel.textAlignment = .center
         
         
@@ -115,17 +116,12 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
         lungsSwitch.addTarget(self, action: #selector(self.switchValueChanged), for: .valueChanged)
     }
     //обработка изменения значения Switch
-    @objc func switchValueChanged(sender:UISwitch!) {
-        switch lungsSwitch.isOn{
-        case true:
-            lungsIconImage.tintColor = .darkGray
-        case false:
-            lungsIconImage.tintColor = .systemPink
-        }
+    @objc func switchValueChanged() {
+        output.switchValueChanged(lungsSwitch: lungsSwitch, lungsIconImage: lungsIconImage)
     }
     
     //все для Slider
-    private func setupSliderController() {
+    func setupSliderController(title: String, sliderColor: UIColor) {
         view.addSubview(testSliderLabel)
         view.addSubview(testSlider)
         view.addSubview(colorChangingView)
@@ -140,7 +136,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
                                                     Constants.DistanceBetweenViews.long),
             testSliderLabel.heightAnchor.constraint(equalToConstant: Constants.Label.height)
         ])
-        testSliderLabel.text = "Slider"
+        testSliderLabel.text = title
         
         
         testSlider.translatesAutoresizingMaskIntoConstraints = false
@@ -153,7 +149,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
             testSlider.heightAnchor.constraint(equalToConstant: Constants.Slider.height)
         ])
         testSlider.value = 0.5
-        testSlider.tintColor = .systemRed
+        testSlider.tintColor = sliderColor
         testSlider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
         
         
@@ -168,12 +164,12 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
         colorChangingView.backgroundColor = UIColor(red: CGFloat(testSlider.value), green: 0, blue: 0, alpha: 0.5)
     }
     //обработка изменения значения  Slider
-    @objc func sliderValueChanged(sender: UISlider) {
-        colorChangingView.backgroundColor = UIColor(red: CGFloat(testSlider.value), green: 0, blue: 0, alpha: 0.5)
+    @objc func sliderValueChanged() {
+        output.sliderValueChanged(testSlider: testSlider, colorChangingView: colorChangingView)
     }
     
     //все для TextField
-    private func setupTextFieldController() {
+    func setupTextFieldController(title: String, textFieldPlaceholder: String) {
         view.addSubview(testTextFieldLabel)
         view.addSubview(testTextField)
         
@@ -185,7 +181,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
             testTextFieldLabel.widthAnchor.constraint(equalToConstant: Constants.Label.width),
             testTextFieldLabel.heightAnchor.constraint(equalToConstant: Constants.Label.height)
         ])
-        testTextFieldLabel.text = "Textfield"
+        testTextFieldLabel.text = title
         
         
         testTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -198,7 +194,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
             testTextField.heightAnchor.constraint(equalToConstant: Constants.TextField.height),
             testTextFieldLabel.centerYAnchor.constraint(equalTo: testTextField.centerYAnchor)
         ])
-        testTextField.placeholder = "Write something here"
+        testTextField.placeholder = textFieldPlaceholder
         testTextField.borderStyle = UITextField.BorderStyle.roundedRect
         testTextField.clearButtonMode = UITextField.ViewMode.whileEditing
         testTextField.returnKeyType = UIReturnKeyType.done
@@ -206,15 +202,13 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
     }
     //обработка окончания ввода в TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == testTextField{
-            testTextField.resignFirstResponder()
-            testTextFieldLabel.text = testTextField.text
-        }
-        return true
+        output.textFieldShouldReturn(testTextField,
+                                     testTextFieldLabel: testTextFieldLabel)
     }
     
     //все для SegmentPicker
-    private func setupSegmentPickerControl() {
+    func setupSegmentPickerControl(title: String, image: UIImage,
+                                           imageColor: UIColor, segmentsTitles: [String]) {
         view.addSubview(moodSegmentPickerLabel)
         view.addSubview(moodSegmentPicker)
         view.addSubview(moodIconImage)
@@ -228,7 +222,7 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
                                                 constant: Constants.DistanceBetweenViews.long * 2),
             moodSegmentPickerLabel.heightAnchor.constraint(equalToConstant: Constants.Label.height)
         ])
-        moodSegmentPickerLabel.text = "Pick one segment"
+        moodSegmentPickerLabel.text = title
         moodSegmentPickerLabel.textAlignment = .center
 
         
@@ -240,12 +234,10 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
                                                    constant: Constants.DistanceBetweenViews.short),
             moodSegmentPicker.heightAnchor.constraint(equalToConstant: Constants.SegmentPicker.height)
         ])
-        moodSegmentPicker.insertSegment(with: nil, at: 0, animated: true)
-        moodSegmentPicker.setTitle("No", forSegmentAt: 0)
-        moodSegmentPicker.insertSegment(with: nil, at: 1, animated: true)
-        moodSegmentPicker.setTitle("IDK", forSegmentAt: 1)
-        moodSegmentPicker.insertSegment(with: nil, at: 2, animated: true)
-        moodSegmentPicker.setTitle("Yes", forSegmentAt: 2)
+        for index in 0...segmentsTitles.count - 1{
+            moodSegmentPicker.insertSegment(with: nil, at: index, animated: true)
+            moodSegmentPicker.setTitle(segmentsTitles[index], forSegmentAt: index)
+        }
         moodSegmentPicker.addTarget(self, action: #selector(self.moodSegmentPickerValueChanged), for: .valueChanged)
         
         
@@ -257,25 +249,17 @@ final class ControllersViewController: UIViewController, UITextFieldDelegate {
                                                constant: Constants.DistanceBetweenViews.long),
             moodIconImage.heightAnchor.constraint(equalToConstant: Constants.Image.height)
         ])
-        moodIconImage.image = UIImage(systemName: "person.fill.questionmark")
-        moodIconImage.tintColor = .systemGray
+        moodIconImage.image = image
+        moodIconImage.tintColor = imageColor
     }
     
     //обработка изменения значения SegmentPicker
-    @objc func moodSegmentPickerValueChanged(sender: UISegmentedControl) {
-        switch moodSegmentPicker.selectedSegmentIndex{
-        case 0:
-            moodIconImage.image = UIImage(systemName: "person.fill.xmark")
-            moodIconImage.tintColor = .systemRed
-        case 1:
-            moodIconImage.image = UIImage(systemName: "person.fill.questionmark")
-            moodIconImage.tintColor = .systemGray
-        case 2:
-            moodIconImage.image = UIImage(systemName: "person.fill.checkmark")
-            moodIconImage.tintColor = .systemGreen
-        default:
-            break
-        }
+    @objc func moodSegmentPickerValueChanged() {
+        output.moodSegmentPickerValueChanged(moodSegmentPicker: moodSegmentPicker,
+                                             moodIconImage: moodIconImage)
     }
 }
 
+extension ViperControllersViewController: ViperControllersViewInput {
+    
+}
